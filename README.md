@@ -1,0 +1,2 @@
+# arithmaster
+Simple arithmetical game
