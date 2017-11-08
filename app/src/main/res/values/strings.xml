@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Arithmaster</string>
-    <string name="tagline">This is the future Arithmaster app by the kawan-kawan team</string>
+    <string name="classic_mode_name">Classic</string>
 </resources>

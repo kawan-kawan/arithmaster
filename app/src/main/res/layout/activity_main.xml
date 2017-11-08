@@ -4,24 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ru.kawankawan.arithmaster.MainActivity"
-    android:background="@color/colorPrimaryLight">
+    android:background="@drawable/main_gradient"
+    tools:context="ru.kawankawan.arithmaster.MainActivity">
 
     <TextView
-        android:id="@+id/taglineTextView"
+        android:id="@+id/appTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-light"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
-        android:text="@string/tagline"
-        android:textAlignment="center"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="72dp"
+        android:fontFamily="@font/source_sans_pro"
+        android:fontFeatureSettings="smcp"
+        android:text="@string/app_name"
         android:textAllCaps="false"
-        android:textAppearance="@android:style/TextAppearance.Material.Display1"
-        android:textColor="@color/colorWhiteEighty"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:textColor="@color/grey80"
+        android:textSize="24pt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="190dp"
+        android:layout_height="190dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/circle_classic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appTitle"
+        app:srcCompat="@drawable/drawable_classic" />
 
 </android.support.constraint.ConstraintLayout>
