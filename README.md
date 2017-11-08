@@ -16,6 +16,7 @@ Daria Kovtun ([@KovtunDaria][dasha])
 
 ### Design
 Nikita Karamov ([@NickKaramoff][nick])
+
 Daria Kovtun ([@KovtunDaria][dasha])
 
 [nick]: https://github.com/NickKaramoff
