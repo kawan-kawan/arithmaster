@@ -14,7 +14,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="72dp"
-        android:fontFamily="@font/source_sans_pro"
+        android:fontFamily="@font/source_sans_pro_light"
         android:fontFeatureSettings="smcp"
         android:text="@string/app_name"
         android:textAllCaps="false"
@@ -24,15 +24,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
+    <!--<ImageButton-->
+        <!--android:id="@+id/imageButton"-->
+        <!--android:layout_width="190dp"-->
+        <!--android:layout_height="190dp"-->
+        <!--android:layout_marginStart="32dp"-->
+        <!--android:layout_marginTop="56dp"-->
+        <!--android:background="@drawable/circle_classic"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@id/appTitle"-->
+        <!--app:srcCompat="@drawable/drawable_classic" />-->
+
+    <Button
+        android:id="@+id/classicButton"
         android:layout_width="190dp"
         android:layout_height="190dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="56dp"
         android:background="@drawable/circle_classic"
+        android:fontFamily="@font/source_sans_pro_light"
+        android:letterSpacing="0.08"
+        android:text="@string/classic_mode_name"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appTitle"
-        app:srcCompat="@drawable/drawable_classic" />
+        app:layout_constraintTop_toBottomOf="@id/appTitle" />
 
 </android.support.constraint.ConstraintLayout>
