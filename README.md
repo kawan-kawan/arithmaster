@@ -6,19 +6,4 @@ The point of the game is to perform basic mathematical operations before the tim
 
 ## Credits
 
-### Code
-Nikita Karamov ([@NickKaramoff][nick])
-
-Almaz Khamedzhanov ([@AlmazKh][almaz])
-
-### Analytics
-Daria Kovtun ([@KovtunDaria][dasha])
-
-### Design
-Nikita Karamov ([@NickKaramoff][nick])
-
-Daria Kovtun ([@KovtunDaria][dasha])
-
-[nick]: https://github.com/NickKaramoff
-[dasha]: https://github.com/KovtunDaria
-[almaz]: https://github.com/AlmazKh
+To see credits and other useful information regarding our app, check out [our GitHub wiki](https://github.com/kawan-kawan/arithmaster/wiki)!
