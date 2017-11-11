@@ -1,4 +1,9 @@
 # Arithmaster
+[![Last commit in develop](https://img.shields.io/github/last-commit/kawan-kawan/arithmaster/develop.svg)]()  
+[![Codacy grade](https://img.shields.io/codacy/grade/290672dfb9e2400e924596823587b969.svg)]()
+[![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/kawan-kawan/arithmaster.svg)]()
+
+
 A simple arithmetical game to test player's skills of counting
 
 ## What is the point?
