@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_gradient"
-    tools:context="ru.kawankawan.arithmaster.MainActivity">
+    tools:context="ru.karamoff.kawan_kawan.arithmaster.MainActivity">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
