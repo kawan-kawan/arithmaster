@@ -128,12 +128,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/empty_field_classic"
             android:fontFamily="@font/source_sans_pro_light"
             android:gravity="center"
-            android:text="@string/emptyField"
             android:textColor="@color/grey80"
-            android:textSize="64sp"
-            android:background="@drawable/empty_field_classic" />
+            android:textSize="64sp" />
     </LinearLayout>
 
     <LinearLayout

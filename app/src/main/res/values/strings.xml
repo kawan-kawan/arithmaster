@@ -6,9 +6,8 @@
     <string name="pause">Pause</string>
     <string name="timerDefault">00:00</string>
     <string name="operationPlus">+</string>
-    <string name="operationMinus">−</string>
+    <string name="operationMinus">-</string>
     <string name="operationMult">×</string>
     <string name="operationDiv">÷</string>
     <string name="operationEquals">=</string>
-    <string name="emptyField">&#160;&#160;&#160;&#160;&#160;</string>
 </resources>
