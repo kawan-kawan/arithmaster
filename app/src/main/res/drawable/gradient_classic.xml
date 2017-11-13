@@ -6,5 +6,5 @@
         android:startColor="@color/arithmasterClassic"
         android:centerColor="@android:color/white"
         android:endColor="@android:color/white"
-        android:angle="135" />
+        android:angle="-45" />
 </shape>

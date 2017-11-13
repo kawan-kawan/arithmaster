@@ -26,7 +26,7 @@ public class GameActivity extends AppCompatActivity {
 
         switch (gamemode) {
             case 0:
-                parent.setBackground(getDrawable(R.drawable.classic_gradient));
+                parent.setBackground(getDrawable(R.drawable.gradient_classic));
                 modeTitle.setText(getText(R.string.classic_mode_name));
                 result.setText(getText(R.string.emptyField));
                 result.setBackground(getDrawable(R.drawable.empty_field_classic));

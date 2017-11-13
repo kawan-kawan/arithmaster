@@ -6,7 +6,8 @@
     android:id="@+id/parentLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ru.karamoff.kawan_kawan.arithmaster.GameActivity">
+    tools:context="ru.karamoff.kawan_kawan.arithmaster.GameActivity"
+    android:background="@drawable/gradient_classic">
 
     <LinearLayout
         android:id="@+id/topBarLayout"
@@ -47,6 +48,7 @@
             android:background="@android:color/transparent"
             android:contentDescription="@string/pause"
             android:cropToPadding="false"
+            android:visibility="invisible"
             app:srcCompat="@drawable/ic_pause" />
     </LinearLayout>
 
@@ -61,6 +63,7 @@
         android:text="@string/timerDefault"
         android:textColor="@color/grey80"
         android:textSize="36sp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topBarLayout" />
@@ -85,7 +88,6 @@
             android:layout_weight="1"
             android:fontFamily="@font/source_sans_pro_light"
             android:gravity="center"
-            android:text="136"
             android:textColor="@color/grey80"
             android:textSize="64sp" />
 
@@ -107,7 +109,6 @@
             android:layout_weight="1"
             android:fontFamily="@font/source_sans_pro_light"
             android:gravity="center"
-            android:text="145"
             android:textColor="@color/grey80"
             android:textSize="64sp" />
 
@@ -127,12 +128,117 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/empty_field_classic"
             android:fontFamily="@font/source_sans_pro_light"
             android:gravity="center"
             android:text="@string/emptyField"
             android:textColor="@color/grey80"
-            android:textSize="64sp" />
+            android:textSize="64sp"
+            android:background="@drawable/empty_field_classic" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button1"
+                style="@style/KeyboardButton.Classic"
+                android:text="1" />
+
+            <Button
+                android:id="@+id/button4"
+                style="@style/KeyboardButton.Classic"
+                android:text="4" />
+
+            <Button
+                android:id="@+id/button7"
+                style="@style/KeyboardButton.Classic"
+                android:text="7" />
+
+            <Button
+                android:id="@+id/buttonPlusMinus"
+                style="@style/KeyboardButton.Classic"
+                android:text="±" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button2"
+                style="@style/KeyboardButton.Classic"
+                android:text="2" />
+
+            <Button
+                android:id="@+id/button5"
+                style="@style/KeyboardButton.Classic"
+                android:text="5" />
+
+            <Button
+                android:id="@+id/button8"
+                style="@style/KeyboardButton.Classic"
+                android:text="8" />
+
+            <Button
+                android:id="@+id/button0"
+                style="@style/KeyboardButton.Classic"
+                android:text="0" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button3"
+                style="@style/KeyboardButton.Classic"
+                android:text="3" />
+
+            <Button
+                android:id="@+id/button6"
+                style="@style/KeyboardButton.Classic"
+                android:text="6" />
+
+            <Button
+                android:id="@+id/button9"
+                style="@style/KeyboardButton.Classic"
+                android:text="9" />
+
+            <Button
+                android:id="@+id/buttonErase"
+                style="@style/KeyboardButton.Classic"
+                android:text="del" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/buttonSubmit"
+                style="@style/KeyboardButton.Submit" />
+
+        </LinearLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
 

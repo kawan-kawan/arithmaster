@@ -9,4 +9,8 @@
     <color name="topBarContentColor">#ccffffff</color>
 
     <color name="fieldColorClassic">#44F57C00</color>
+
+    <color name="buttonColorClassic">#22F57C00</color>
+
+    <color name="buttonColorSubmit">#222E7D32</color>
 </resources>

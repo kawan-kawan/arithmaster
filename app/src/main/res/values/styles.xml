@@ -4,8 +4,26 @@
         <item name="colorPrimary">@color/arithmasterMain</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="KeyboardButton">
+        <item name="android:textSize">36sp</item>
+        <item name="android:fontFamily">@font/source_sans_pro_light</item>
+        <item name="android:layout_margin">@dimen/buttonMargin</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="KeyboardButton.Classic" parent="KeyboardButton">
+        <item name="android:background">@drawable/button_classic</item>
+    </style>
+
+    <style name="KeyboardButton.Submit" parent="KeyboardButton">
+        <item name="android:background">@drawable/button_submit</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:src">@drawable/ic_check</item>
+
+    </style>
 
 </resources>
