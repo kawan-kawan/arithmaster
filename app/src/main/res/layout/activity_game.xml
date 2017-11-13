@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ru.karamoff.kawan_kawan.arithmaster.GameActivity"
+    android:background="@drawable/gradient_classic">
+
+    <LinearLayout
+        android:id="@+id/topBarLayout"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:background="@color/barColorClassic"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="64dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/back_to_menu"
+            android:cropToPadding="false"
+            app:srcCompat="@drawable/ic_arrow_back" />
+
+        <TextView
+            android:id="@+id/modeTitle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="@font/source_sans_pro_light"
+            android:gravity="center"
+            android:letterSpacing="0.06"
+            android:text="@string/app_name"
+            android:textAllCaps="true"
+            android:textColor="@color/topBarContentColor"
+            android:textSize="30sp" />
+
+        <ImageButton
+            android:id="@+id/pauseButton"
+            android:layout_width="64dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/pause"
+            android:cropToPadding="false"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/ic_pause" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/source_sans_pro_light"
+        android:text="@string/timerDefault"
+        android:textColor="@color/grey80"
+        android:textSize="36sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBarLayout" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timer">
+
+        <!--TODO auto resize text-->
+
+        <TextView
+            android:id="@+id/operandOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/source_sans_pro_light"
+            android:gravity="center"
+            android:textColor="@color/grey80"
+            android:textSize="64sp" />
+
+        <TextView
+            android:id="@+id/operation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/source_sans_pro_light"
+            android:gravity="center"
+            android:text="@string/operationPlus"
+            android:textColor="@color/grey80"
+            android:textSize="64sp" />
+
+        <TextView
+            android:id="@+id/operandTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/source_sans_pro_light"
+            android:gravity="center"
+            android:textColor="@color/grey80"
+            android:textSize="64sp" />
+
+        <TextView
+            android:id="@+id/equalsTo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/source_sans_pro_light"
+            android:gravity="center"
+            android:text="@string/operationEquals"
+            android:textColor="@color/grey80"
+            android:textSize="64sp" />
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/empty_field_classic"
+            android:fontFamily="@font/source_sans_pro_light"
+            android:gravity="center"
+            android:textColor="@color/grey80"
+            android:textSize="64sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button1"
+                style="@style/KeyboardButton.Classic"
+                android:text="1" />
+
+            <Button
+                android:id="@+id/button4"
+                style="@style/KeyboardButton.Classic"
+                android:text="4" />
+
+            <Button
+                android:id="@+id/button7"
+                style="@style/KeyboardButton.Classic"
+                android:text="7" />
+
+            <Button
+                android:id="@+id/buttonPlusMinus"
+                style="@style/KeyboardButton.Classic"
+                android:text="±" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button2"
+                style="@style/KeyboardButton.Classic"
+                android:text="2" />
+
+            <Button
+                android:id="@+id/button5"
+                style="@style/KeyboardButton.Classic"
+                android:text="5" />
+
+            <Button
+                android:id="@+id/button8"
+                style="@style/KeyboardButton.Classic"
+                android:text="8" />
+
+            <Button
+                android:id="@+id/button0"
+                style="@style/KeyboardButton.Classic"
+                android:text="0" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button3"
+                style="@style/KeyboardButton.Classic"
+                android:text="3" />
+
+            <Button
+                android:id="@+id/button6"
+                style="@style/KeyboardButton.Classic"
+                android:text="6" />
+
+            <Button
+                android:id="@+id/button9"
+                style="@style/KeyboardButton.Classic"
+                android:text="9" />
+
+            <Button
+                android:id="@+id/buttonErase"
+                style="@style/KeyboardButton.Classic"
+                android:text="del" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/buttonSubmit"
+                style="@style/KeyboardButton.Submit" />
+
+        </LinearLayout>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
+

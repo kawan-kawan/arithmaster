@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">Arithmaster</string>
     <string name="classic_mode_name">Classic</string>
+    <string name="title_activity_game">GameActivity</string>
+    <string name="back_to_menu">Back to menu</string>
+    <string name="pause">Pause</string>
+    <string name="timerDefault">00:00</string>
+    <string name="operationPlus">+</string>
+    <string name="operationMinus">-</string>
+    <string name="operationMult">×</string>
+    <string name="operationDiv">÷</string>
+    <string name="operationEquals">=</string>
 </resources>

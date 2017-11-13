@@ -6,11 +6,11 @@
     "apkInfo": {
       "type": "MAIN",
       "splits": [],
-      "versionCode": 8
+      "versionCode": 10
     },
     "path": "app-release.apk",
     "properties": {
-      "packageId": "ru.kawankawan.arithmaster",
+      "packageId": "ru.karamoff.kawan_kawan.arithmaster",
       "split": "",
       "minSdkVersion": "21"
     }

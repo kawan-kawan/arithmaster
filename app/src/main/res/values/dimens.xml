@@ -1,0 +1,5 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="topBarIconSize">36dp</dimen>
+    <dimen name="buttonMargin">4dp</dimen>
+</resources>
