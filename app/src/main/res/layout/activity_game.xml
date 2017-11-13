@@ -9,6 +9,7 @@
     tools:context="ru.karamoff.kawan_kawan.arithmaster.GameActivity">
 
     <LinearLayout
+        android:id="@+id/topBarLayout"
         android:layout_width="0dp"
         android:layout_height="64dp"
         android:background="@color/barColorClassic"
@@ -47,6 +48,91 @@
             android:contentDescription="@string/pause"
             android:cropToPadding="false"
             app:srcCompat="@drawable/ic_pause" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/source_sans_pro_light"
+        android:text="@string/timerDefault"
+        android:textColor="@color/grey80"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBarLayout" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timer">
+
+        <!--TODO auto resize text-->
+
+        <TextView
+            android:id="@+id/operandOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/source_sans_pro_light"
+            android:gravity="center"
+            android:text="136"
+            android:textColor="@color/grey80"
+            android:textSize="64sp" />
+
+        <TextView
+            android:id="@+id/operation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/source_sans_pro_light"
+            android:gravity="center"
+            android:text="@string/operationPlus"
+            android:textColor="@color/grey80"
+            android:textSize="64sp" />
+
+        <TextView
+            android:id="@+id/operandTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/source_sans_pro_light"
+            android:gravity="center"
+            android:text="145"
+            android:textColor="@color/grey80"
+            android:textSize="64sp" />
+
+        <TextView
+            android:id="@+id/equalsTo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/source_sans_pro_light"
+            android:gravity="center"
+            android:text="@string/operationEquals"
+            android:textColor="@color/grey80"
+            android:textSize="64sp" />
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/empty_field_classic"
+            android:fontFamily="@font/source_sans_pro_light"
+            android:gravity="center"
+            android:text="@string/emptyField"
+            android:textColor="@color/grey80"
+            android:textSize="64sp" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
 

@@ -7,4 +7,6 @@
     <color name="grey80">#333</color>
     <color name="barColorClassic">#F57C00</color>
     <color name="topBarContentColor">#ccffffff</color>
+
+    <color name="fieldColorClassic">#44F57C00</color>
 </resources>

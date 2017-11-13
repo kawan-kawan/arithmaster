@@ -7,7 +7,7 @@ android {
         minSdkVersion 21
         //noinspection OldTargetApi
         targetSdkVersion 26
-        versionCode 10
+        versionCode 11
         versionName "0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -17,8 +17,6 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-    }
-    productFlavors {
     }
     compileOptions {
         targetCompatibility 1.8

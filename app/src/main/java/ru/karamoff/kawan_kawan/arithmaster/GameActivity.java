@@ -22,11 +22,14 @@ public class GameActivity extends AppCompatActivity {
 
         ConstraintLayout parent = findViewById(R.id.parentLayout);
         TextView modeTitle = findViewById(R.id.modeTitle);
+        TextView result = findViewById(R.id.result);
 
         switch (gamemode) {
             case 0:
                 parent.setBackground(getDrawable(R.drawable.classic_gradient));
                 modeTitle.setText(getText(R.string.classic_mode_name));
+                result.setText(getText(R.string.emptyField));
+                result.setBackground(getDrawable(R.drawable.empty_field_classic));
                 break;
         }
 
