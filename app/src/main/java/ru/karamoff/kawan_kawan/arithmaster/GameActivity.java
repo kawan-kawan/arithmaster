@@ -6,10 +6,14 @@ import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class GameActivity extends AppCompatActivity {
+
+
+    TextView textView1, textView2, textView3, operationField;
+    int operation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +27,28 @@ public class GameActivity extends AppCompatActivity {
 
         ConstraintLayout parent = findViewById(R.id.parentLayout);
         TextView modeTitle = findViewById(R.id.modeTitle);
-        TextView operand1 = findViewById(R.id.operandOne);
-        TextView operand2 = findViewById(R.id.operandTwo);
-        TextView result = findViewById(R.id.result);
+
+
+        textView1 = findViewById(R.id.operandOne);
+        textView2 = findViewById(R.id.operandTwo);
+        textView3 = findViewById(R.id.result);
+        operationField = findViewById(R.id.operation);
+
+        TextView toBeFilled;
+
+        switch (gamemode) {
+            case 0:
+                parent.setBackground(getDrawable(R.drawable.gradient_classic));
+                modeTitle.setText(getText(R.string.classic_mode_name));
+                textView3.setBackground(getDrawable(R.drawable.empty_field_classic));
+                toBeFilled = textView3;
+                break;
+            default:
+                parent.setBackground(getDrawable(R.drawable.gradient_main));
+                toBeFilled = textView3;
+                break;
+        }
+
 
         Button[] digits = {
                 findViewById(R.id.button0),
@@ -43,59 +66,77 @@ public class GameActivity extends AppCompatActivity {
         for (int i = 0; i < digits.length; i++) {
             final int digit = i;
             digits[i].setOnClickListener(v ->
-                    result.setText(result.getText() + String.valueOf(digit)));
+                    toBeFilled.setText(toBeFilled.getText() + String.valueOf(digit)));
         }
 
-        Button buttonErase = findViewById(R.id.buttonErase);
-
-        buttonErase.setOnClickListener(v -> {
-            if (result.getText().length() != 0) {
-                result.setText(result.getText().subSequence(0, result.getText().length() - 1));
+        findViewById(R.id.buttonErase).setOnClickListener(v -> {
+            if (toBeFilled.getText().length() != 0) {
+                toBeFilled.setText(toBeFilled.getText().subSequence(0, toBeFilled.getText().length() - 1));
             }
         });
 
-        Button buttonPlusMinus = findViewById(R.id.buttonPlusMinus);
+        findViewById(R.id.buttonPlusMinus).setOnClickListener(v -> {
 
-        buttonPlusMinus.setOnClickListener(v -> {
-
-            if (result.getText().length() != 0) {
-                if (result.getText().charAt(0) != 45) {
-                    result.setText("" + getText(R.string.operationMinus) + result.getText());
+            if (toBeFilled.getText().length() != 0) {
+                if (toBeFilled.getText().charAt(0) != 45) {
+                    toBeFilled.setText("" + getText(R.string.operationMinus) + toBeFilled.getText());
                 } else {
-                    result.setText(result.getText().subSequence(1, result.getText().length()));
+                    toBeFilled.setText(toBeFilled.getText().subSequence(1, toBeFilled.getText().length()));
                 }
             } else {
-                result.setText(getText(R.string.operationMinus));
+                toBeFilled.setText(getText(R.string.operationMinus));
             }
 
         });
 
-        ImageButton buttonSubmit = findViewById(R.id.buttonSubmit);
-
-//        buttonSubmit.setOnClickListener(v -> checkAnswer(
-//                Integer.parseInt(String.valueOf(operand1.getText())),
-//                Integer.parseInt(String.valueOf(operand2.getText())),
-//                0,
-//                Integer.parseInt(String.valueOf(result.getText()))
-//                ));
-
-        switch (gamemode) {
-            case 0:
-                parent.setBackground(getDrawable(R.drawable.gradient_classic));
-                modeTitle.setText(getText(R.string.classic_mode_name));
-                result.setBackground(getDrawable(R.drawable.empty_field_classic));
-                break;
-        }
-
-        ImageButton back = findViewById(R.id.backButton);
-        back.setOnClickListener(v -> {
-//            Intent intent = new Intent(GameActivity.this, MainActivity.class);
-//            startActivity(intent);
+        findViewById(R.id.backButton).setOnClickListener(v -> {
             finish();
         });
+        // конец инициализации
+
+        initiate(toBeFilled);
+
+        final int correctAnswer = Solver.solveForClassic(
+                Integer.parseInt(String.valueOf(textView1.getText())),
+                Integer.parseInt(String.valueOf(textView2.getText())),
+                operation
+        );
+
+        findViewById(R.id.buttonSubmit).setOnClickListener(v -> {
+                    if (toBeFilled.getText().length() != 0) {
+                        final int userAnswer = Integer.parseInt(String.valueOf(toBeFilled.getText()));
+                        boolean correct = AnswerChecker.checkForClassic(correctAnswer, userAnswer);
+                        Toast.makeText(getApplicationContext(),
+                                correct ? "Correct!" : "Incorrect!",
+                                Toast.LENGTH_SHORT).show();
+                        initiate(toBeFilled);
+                    }
+                }
+        );
     }
 
-    private void checkAnswer(int operand1, int operand2, int operation, int result) {
+    private void initiate(TextView toBeFilled) {
+        operation = Randomizer.generateOperation();
+        operationField.setText(operationToString(operation));
+        textView1.setText(String.valueOf(Randomizer.generateNumber()));
+        textView2.setText(String.valueOf(Randomizer.generateNumber()));
+        textView3.setText(String.valueOf(Randomizer.generateNumber()));
+        toBeFilled.setText("");
+    }
+
+    private String operationToString(int operation) {
+        switch (operation) {
+            case 0:
+                return String.valueOf(getText(R.string.operationPlus));
+            case 1:
+                return String.valueOf(getText(R.string.operationMinus));
+            case 2:
+                return String.valueOf(getText(R.string.operationMult));
+            case 3:
+                return String.valueOf(getText(R.string.operationDiv));
+            default:
+                return String.valueOf(getText(R.string.operationPlus));
+        }
     }
 
 }
