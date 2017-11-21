@@ -13,7 +13,7 @@ public class GameActivity extends AppCompatActivity {
 
 
     TextView textView1, textView2, textView3, operationField;
-    int operation;
+    int operation, correctAnswer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,14 +96,8 @@ public class GameActivity extends AppCompatActivity {
 
         initiate(toBeFilled);
 
-        final int correctAnswer = Solver.solveForClassic(
-                Integer.parseInt(String.valueOf(textView1.getText())),
-                Integer.parseInt(String.valueOf(textView2.getText())),
-                operation
-        );
-
         findViewById(R.id.buttonSubmit).setOnClickListener(v -> {
-                    if (toBeFilled.getText().length() != 0) {
+                    if (toBeFilled.getText().length() != 0 && !toBeFilled.getText().equals(getText(R.string.operationMinus))) {
                         final int userAnswer = Integer.parseInt(String.valueOf(toBeFilled.getText()));
                         boolean correct = AnswerChecker.checkForClassic(correctAnswer, userAnswer);
                         Toast.makeText(getApplicationContext(),
@@ -122,6 +116,12 @@ public class GameActivity extends AppCompatActivity {
         textView2.setText(String.valueOf(Randomizer.generateNumber()));
         textView3.setText(String.valueOf(Randomizer.generateNumber()));
         toBeFilled.setText("");
+
+        correctAnswer = Solver.solveForClassic(
+                Integer.parseInt(String.valueOf(textView1.getText())),
+                Integer.parseInt(String.valueOf(textView2.getText())),
+                operation
+        );
     }
 
     private String operationToString(int operation) {
