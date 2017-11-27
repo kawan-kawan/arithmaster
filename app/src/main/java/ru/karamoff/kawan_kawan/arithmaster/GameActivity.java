@@ -12,53 +12,61 @@ import android.widget.Toast;
 
 public class GameActivity extends AppCompatActivity {
 
+    TextView textView1,
+            textView2,
+            textView3,
+            operationField;
 
-    TextView textView1, textView2, textView3, operationField;
-    int operation, correctAnswer;
+    int operation,
+            correctAnswer;
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint("SetTextI18n") // не обращать внимания
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // стартовая инициализация
         super.onCreate(savedInstanceState);
-        // this line hides the status bar
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_game);
 
+        // получение информации о режиме игры
         Intent intent = getIntent();
-        int gamemode = intent.getIntExtra("gamemode", 0); // получение информации о режиме игры
+        int gamemode = intent.getIntExtra("gamemode", 0);
 
-        ConstraintLayout parent = findViewById(R.id.parentLayout);
-        TextView modeTitle = findViewById(R.id.modeTitle);
+        // получение объектов для изменения в дальнейшем
+        ConstraintLayout parent = findViewById(R.id.parentLayout); // "родитель" разметки
+        TextView modeTitle = findViewById(R.id.modeTitle); // заголовок окна
 
+        textView1 = findViewById(R.id.operandOne); // поле первого числа
+        textView2 = findViewById(R.id.operandTwo); // поле второго числа
+        textView3 = findViewById(R.id.result); // поле третьего числа
+        operationField = findViewById(R.id.operation); // операция
 
-        textView1 = findViewById(R.id.operandOne);
-        textView2 = findViewById(R.id.operandTwo);
-        textView3 = findViewById(R.id.result);
-        operationField = findViewById(R.id.operation);
-
+        // объединение полей для чисел в массив
         TextView[] textviews = new TextView[3];
-//        TextView toBeFilled;
-        int toBeFilled;
-
-
         textviews[0] = textView1;
         textviews[1] = textView2;
         textviews[2] = textView3;
 
+        int toBeFilled; // обозначает индекс того поля, которое заполняет пользователь
+
+        // меняет окно в зависимости от режима игры
         switch (gamemode) {
-            case 0:
-                parent.setBackground(getDrawable(R.drawable.gradient_classic));
-                modeTitle.setText(getText(R.string.classic_mode_name));
+            case 0: // классика
+                parent.setBackground(getDrawable(R.drawable.gradient_classic)); // установка фона
+                modeTitle.setText(getText(R.string.classic_mode_name)); // установка заголовка
+
+                // установка номера заполняемого поля - в данном случае последнее
                 toBeFilled = 2;
                 textviews[toBeFilled].setBackground(getDrawable(R.drawable.empty_field_classic));
                 break;
-            default:
+            default: // если не передан один из стандартных режимов - скорее всего ошибка
                 toBeFilled = 2;
-                finish();
+                finish(); // убиваем activity
                 break;
         }
 
-
+        // объединяем кнопки клавиатуры с цифрами в массив
         Button[] digits = {
                 findViewById(R.id.button0),
                 findViewById(R.id.button1),
@@ -72,28 +80,32 @@ public class GameActivity extends AppCompatActivity {
                 findViewById(R.id.button9)
         };
 
-        // метод добавляет цифры в поле ответа (не более четырёх цифр)
+
         for (int i = 0; i < digits.length; i++) {
             final int digit = i;
             digits[i].setOnClickListener(v -> {
-                if (textviews[toBeFilled].getText().length() > 0 && textviews[toBeFilled].getText().charAt(0) == 45 && textviews[toBeFilled].getText().length() <= 4 ||
-                        textviews[toBeFilled].getText().length() <= 3) {
+                // метод добавляет цифры в поле ответа при нажатии (не более четырёх цифр)
+                if (textviews[toBeFilled].getText().length() > 0 &&         // если длина больше нуля И
+                        textviews[toBeFilled].getText().charAt(0) == 45 &&  // если первый минус И
+                        textviews[toBeFilled].getText().length() <= 4 ||    // если длина меньше 5
+
+                        textviews[toBeFilled].getText().length() <= 3) {    // ИЛИ если длина меньше 3
                     textviews[toBeFilled].setText(textviews[toBeFilled].getText() + String.valueOf(digit));
                 }
             });
         }
 
-        // метод стирает цифры при нажатии на "DEL"
         findViewById(R.id.buttonErase).setOnClickListener(v -> {
+            // метод стирает цифры при нажатии на "DEL"
             if (textviews[toBeFilled].getText().length() != 0) {
                 textviews[toBeFilled].setText(textviews[toBeFilled].getText().subSequence(0, textviews[toBeFilled].getText().length() - 1));
             }
         });
 
-        // метод меняет положительное число на отрицательноеи наоборот
         findViewById(R.id.buttonPlusMinus).setOnClickListener(v -> {
-            if (textviews[toBeFilled].getText().length() != 0) {
-                if (textviews[toBeFilled].getText().charAt(0) != 45) {
+            // метод меняет положительное число на отрицательноеи наоборот
+            if (textviews[toBeFilled].getText().length() != 0) { // если поле не пусто
+                if (textviews[toBeFilled].getText().charAt(0) != 45) { // если первый НЕ минус
                     textviews[toBeFilled].setText("" + getText(R.string.operationMinus) + textviews[toBeFilled].getText());
                 } else {
                     textviews[toBeFilled].setText(textviews[toBeFilled].getText().subSequence(1, textviews[toBeFilled].getText().length()));
@@ -110,36 +122,51 @@ public class GameActivity extends AppCompatActivity {
         // конец инициализации
 
 
-
+        // запускает игру
         initiate(textviews, toBeFilled);
 
+        // установка метода проверки на кнопку "подтвердить ответ"
         findViewById(R.id.buttonSubmit).setOnClickListener(v -> {
-                    if (textviews[toBeFilled].getText().length() != 0 && !textviews[toBeFilled].getText().equals(getText(R.string.operationMinus))) {
-                        final int userAnswer = Integer.parseInt(String.valueOf(textviews[toBeFilled].getText()));
-                        boolean correct = AnswerChecker.checkForClassic(correctAnswer, userAnswer);
-                        Toast.makeText(getApplicationContext(),
-                                correct ? "Correct!" : "Incorrect!",
-                                Toast.LENGTH_SHORT).show();
-                        initiate(textviews, toBeFilled);
-                    }
-                }
-        );
+            if (textviews[toBeFilled].getText().length() != 0 &&
+                    !textviews[toBeFilled].getText().equals(getText(R.string.operationMinus))) {
+                // конвертация ответа пользователя в int
+                final int userAnswer = Integer.parseInt(String.valueOf(textviews[toBeFilled].getText()));
+                // проверка на правильность ответа
+                boolean correct = correctAnswer == userAnswer;
+                // высвечивание результата
+                Toast.makeText(getApplicationContext(),
+                        correct ? "Correct!" : "Incorrect!",
+                        Toast.LENGTH_SHORT).show();
+                // повторная инициализация; следующий раунд
+                initiate(textviews, toBeFilled);
+            }
+        });
     }
 
+
     private void initiate(TextView[] textviews, int toBeFilled) {
+        // генерирует операцию и числа
         int[] set = Randomizer.generate();
+
+        // установка операции в поле
         operation = set[0];
         operationField.setText(operationToString(operation));
-        for (int i = 0; i < textviews.length; i++){
-            if(i != toBeFilled) {
+
+        // установка чисел в поля, не заполняемые пользователем
+        for (int i = 0; i < textviews.length; i++) {
+            if (i != toBeFilled) {
                 textviews[i].setText(String.valueOf(set[i + 1]));
             }
         }
+
+        // поле, заполняемое пользователем, очищается
         textviews[toBeFilled].setText("");
 
+        // установка корректного ответа
         correctAnswer = set[3];
     }
 
+    // метод принимает номер операции и возвращает соответствующий знак в форме строки
     private String operationToString(int operation) {
         switch (operation) {
             case 0:
