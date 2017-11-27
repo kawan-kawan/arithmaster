@@ -15,12 +15,14 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
-        Intent intent = new Intent(MainActivity.this, GameActivity.class);
+        Intent gameIntent = new Intent(MainActivity.this, GameActivity.class);
 
-        Button classicButton = findViewById(R.id.classicButton);
-        classicButton.setOnClickListener(v -> {
-            intent.putExtra("gamemode", 0); // передача информации о режиме игры
-            startActivity(intent);
+        findViewById(R.id.classicButton).setOnClickListener(v -> {
+            gameIntent.putExtra("gamemode", 0); // передача информации о режиме игры
+            startActivity(gameIntent);
         });
+
+        findViewById(R.id.infoButton).setOnClickListener(v ->
+                startActivity(new Intent(MainActivity.this, InfoActivity.class)));
     }
 }
