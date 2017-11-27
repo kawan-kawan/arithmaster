@@ -1,5 +1,6 @@
 package ru.karamoff.kawan_kawan.arithmaster;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
@@ -13,8 +14,9 @@ public class GameActivity extends AppCompatActivity {
 
 
     TextView textView1, textView2, textView3, operationField;
-    int operation;
+    int operation, correctAnswer;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,8 +67,12 @@ public class GameActivity extends AppCompatActivity {
 
         for (int i = 0; i < digits.length; i++) {
             final int digit = i;
-            digits[i].setOnClickListener(v ->
-                    toBeFilled.setText(toBeFilled.getText() + String.valueOf(digit)));
+            digits[i].setOnClickListener(v -> {
+                if (toBeFilled.getText().length() > 0 && toBeFilled.getText().charAt(0) == 45 && toBeFilled.getText().length()<=4 ||
+                        toBeFilled.getText().length()<=3) {
+                    toBeFilled.setText(toBeFilled.getText() + String.valueOf(digit));
+                }
+            });
         }
 
         findViewById(R.id.buttonErase).setOnClickListener(v -> {
@@ -96,14 +102,8 @@ public class GameActivity extends AppCompatActivity {
 
         initiate(toBeFilled);
 
-        final int correctAnswer = Solver.solveForClassic(
-                Integer.parseInt(String.valueOf(textView1.getText())),
-                Integer.parseInt(String.valueOf(textView2.getText())),
-                operation
-        );
-
         findViewById(R.id.buttonSubmit).setOnClickListener(v -> {
-                    if (toBeFilled.getText().length() != 0) {
+                    if (toBeFilled.getText().length() != 0 && !toBeFilled.getText().equals(getText(R.string.operationMinus))) {
                         final int userAnswer = Integer.parseInt(String.valueOf(toBeFilled.getText()));
                         boolean correct = AnswerChecker.checkForClassic(correctAnswer, userAnswer);
                         Toast.makeText(getApplicationContext(),
@@ -122,6 +122,12 @@ public class GameActivity extends AppCompatActivity {
         textView2.setText(String.valueOf(Randomizer.generateNumber()));
         textView3.setText(String.valueOf(Randomizer.generateNumber()));
         toBeFilled.setText("");
+
+        correctAnswer = Solver.solveForClassic(
+                Integer.parseInt(String.valueOf(textView1.getText())),
+                Integer.parseInt(String.valueOf(textView2.getText())),
+                operation
+        );
     }
 
     private String operationToString(int operation) {
