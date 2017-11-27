@@ -1,13 +1,27 @@
 <resources>
-    <string name="app_name">Arithmaster</string>
+    <string name="app_name" translatable="false">Arithmaster</string>
+    <string name="title_activity_game" translatable="false">GameActivity</string>
+
     <string name="classic_mode_name">Classic</string>
-    <string name="title_activity_game">GameActivity</string>
+    <string name="info_name">Info</string>
+
     <string name="back_to_menu">Back to menu</string>
     <string name="pause">Pause</string>
     <string name="timerDefault">00:00</string>
+
     <string name="operationPlus">+</string>
     <string name="operationMinus">-</string>
     <string name="operationMult">×</string>
     <string name="operationDiv">÷</string>
     <string name="operationEquals">=</string>
+
+    <string name="credits0">version 0.1</string>
+    <string name="credits1">brought to you by</string>
+    <string name="credits2">kawan-kawan</string>
+    <string name="credits3">Head Developer &amp; Team Leader</string>
+    <string name="credits4">Nick Karamoff</string>
+    <string name="credits5">Design &amp; Analytics</string>
+    <string name="credits6">Daria Kovtun</string>
+    <string name="credits7">Developer</string>
+    <string name="credits8">Almaz Khamedzhanov</string>
 </resources>
