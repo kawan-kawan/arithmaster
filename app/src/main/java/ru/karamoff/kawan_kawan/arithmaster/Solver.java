@@ -1,22 +1,18 @@
 package ru.karamoff.kawan_kawan.arithmaster;
 
-/**
- * Created by nick on 14.11.17.
- */
-
-public class Solver {
-    static int solveForClassic(int a, int b, int operation) {
+class Solver {
+    static int solve(int number1, int number2, int operation) {
         switch (operation) {
             case 0:
-                return a + b;
+                return number1 + number2;
             case 1:
-                return a - b;
+                return number1 - number2;
             case 2:
-                return a * b;
+                return number1 * number2;
             case 3:
-                return a / b;
+                return number1 / number2;
             default:
-                return a + b;
+                return number1 + number2;
         }
     }
 }

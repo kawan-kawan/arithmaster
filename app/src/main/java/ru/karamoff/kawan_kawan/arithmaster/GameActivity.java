@@ -36,18 +36,25 @@ public class GameActivity extends AppCompatActivity {
         textView3 = findViewById(R.id.result);
         operationField = findViewById(R.id.operation);
 
-        TextView toBeFilled;
+        TextView[] textviews = new TextView[3];
+//        TextView toBeFilled;
+        int toBeFilled;
+
+
+        textviews[0] = textView1;
+        textviews[1] = textView2;
+        textviews[2] = textView3;
 
         switch (gamemode) {
             case 0:
                 parent.setBackground(getDrawable(R.drawable.gradient_classic));
                 modeTitle.setText(getText(R.string.classic_mode_name));
-                textView3.setBackground(getDrawable(R.drawable.empty_field_classic));
-                toBeFilled = textView3;
+                toBeFilled = 2;
+                textviews[toBeFilled].setBackground(getDrawable(R.drawable.empty_field_classic));
                 break;
             default:
-                parent.setBackground(getDrawable(R.drawable.gradient_main));
-                toBeFilled = textView3;
+                toBeFilled = 2;
+                finish();
                 break;
         }
 
@@ -65,69 +72,72 @@ public class GameActivity extends AppCompatActivity {
                 findViewById(R.id.button9)
         };
 
+        // метод добавляет цифры в поле ответа (не более четырёх цифр)
         for (int i = 0; i < digits.length; i++) {
             final int digit = i;
             digits[i].setOnClickListener(v -> {
-                if (toBeFilled.getText().length() > 0 && toBeFilled.getText().charAt(0) == 45 && toBeFilled.getText().length()<=4 ||
-                        toBeFilled.getText().length()<=3) {
-                    toBeFilled.setText(toBeFilled.getText() + String.valueOf(digit));
+                if (textviews[toBeFilled].getText().length() > 0 && textviews[toBeFilled].getText().charAt(0) == 45 && textviews[toBeFilled].getText().length() <= 4 ||
+                        textviews[toBeFilled].getText().length() <= 3) {
+                    textviews[toBeFilled].setText(textviews[toBeFilled].getText() + String.valueOf(digit));
                 }
             });
         }
 
+        // метод стирает цифры при нажатии на "DEL"
         findViewById(R.id.buttonErase).setOnClickListener(v -> {
-            if (toBeFilled.getText().length() != 0) {
-                toBeFilled.setText(toBeFilled.getText().subSequence(0, toBeFilled.getText().length() - 1));
+            if (textviews[toBeFilled].getText().length() != 0) {
+                textviews[toBeFilled].setText(textviews[toBeFilled].getText().subSequence(0, textviews[toBeFilled].getText().length() - 1));
             }
         });
 
+        // метод меняет положительное число на отрицательноеи наоборот
         findViewById(R.id.buttonPlusMinus).setOnClickListener(v -> {
-
-            if (toBeFilled.getText().length() != 0) {
-                if (toBeFilled.getText().charAt(0) != 45) {
-                    toBeFilled.setText("" + getText(R.string.operationMinus) + toBeFilled.getText());
+            if (textviews[toBeFilled].getText().length() != 0) {
+                if (textviews[toBeFilled].getText().charAt(0) != 45) {
+                    textviews[toBeFilled].setText("" + getText(R.string.operationMinus) + textviews[toBeFilled].getText());
                 } else {
-                    toBeFilled.setText(toBeFilled.getText().subSequence(1, toBeFilled.getText().length()));
+                    textviews[toBeFilled].setText(textviews[toBeFilled].getText().subSequence(1, textviews[toBeFilled].getText().length()));
                 }
             } else {
-                toBeFilled.setText(getText(R.string.operationMinus));
+                textviews[toBeFilled].setText(getText(R.string.operationMinus));
             }
 
         });
 
-        findViewById(R.id.backButton).setOnClickListener(v -> {
-            finish();
-        });
+        // метод возвращается в главное меню при нажатии на кнопку
+        findViewById(R.id.backButton).setOnClickListener(v -> finish());
+
         // конец инициализации
 
-        initiate(toBeFilled);
+
+
+        initiate(textviews, toBeFilled);
 
         findViewById(R.id.buttonSubmit).setOnClickListener(v -> {
-                    if (toBeFilled.getText().length() != 0 && !toBeFilled.getText().equals(getText(R.string.operationMinus))) {
-                        final int userAnswer = Integer.parseInt(String.valueOf(toBeFilled.getText()));
+                    if (textviews[toBeFilled].getText().length() != 0 && !textviews[toBeFilled].getText().equals(getText(R.string.operationMinus))) {
+                        final int userAnswer = Integer.parseInt(String.valueOf(textviews[toBeFilled].getText()));
                         boolean correct = AnswerChecker.checkForClassic(correctAnswer, userAnswer);
                         Toast.makeText(getApplicationContext(),
                                 correct ? "Correct!" : "Incorrect!",
                                 Toast.LENGTH_SHORT).show();
-                        initiate(toBeFilled);
+                        initiate(textviews, toBeFilled);
                     }
                 }
         );
     }
 
-    private void initiate(TextView toBeFilled) {
-        operation = Randomizer.generateOperation();
+    private void initiate(TextView[] textviews, int toBeFilled) {
+        int[] set = Randomizer.generate();
+        operation = set[0];
         operationField.setText(operationToString(operation));
-        textView1.setText(String.valueOf(Randomizer.generateNumber()));
-        textView2.setText(String.valueOf(Randomizer.generateNumber()));
-        textView3.setText(String.valueOf(Randomizer.generateNumber()));
-        toBeFilled.setText("");
+        for (int i = 0; i < textviews.length; i++){
+            if(i != toBeFilled) {
+                textviews[i].setText(String.valueOf(set[i + 1]));
+            }
+        }
+        textviews[toBeFilled].setText("");
 
-        correctAnswer = Solver.solveForClassic(
-                Integer.parseInt(String.valueOf(textView1.getText())),
-                Integer.parseInt(String.valueOf(textView2.getText())),
-                operation
-        );
+        correctAnswer = set[3];
     }
 
     private String operationToString(int operation) {
