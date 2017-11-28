@@ -7,21 +7,25 @@
 
     <string name="back_to_menu">Back to menu</string>
     <string name="pause">Pause</string>
-    <string name="timerDefault">00:00</string>
+    <string name="timer_default" translatable="false">00:00</string>
 
-    <string name="operationPlus">+</string>
-    <string name="operationMinus">-</string>
-    <string name="operationMult">×</string>
-    <string name="operationDiv">÷</string>
-    <string name="operationEquals">=</string>
+    <string name="operation_plus" translatable="false">+</string>
+    <string name="operation_minus" translatable="false">-</string>
+    <string name="operation_mult" translatable="false">×</string>
+    <string name="operation_div" translatable="false">÷</string>
+    <string name="operation_equals" translatable="false">=</string>
 
-    <string name="credits0">version 0.1</string>
-    <string name="credits1">brought to you by</string>
-    <string name="credits2">kawan-kawan</string>
-    <string name="credits3">Head Developer &amp; Team Leader</string>
-    <string name="credits4">Nikita Karamov</string>
-    <string name="credits5">Design &amp; Analytics</string>
-    <string name="credits6">Daria Kovtun</string>
-    <string name="credits7">Developer</string>
-    <string name="credits8">Almaz Khamedzhanov</string>
+    <string name="plus_minus" translatable="false">±</string>
+    <string name="del">DEL</string>
+    <string name="submit">Submit</string>
+
+    <string name="version">version 0.1</string>
+    <string name="brought_to_you">brought to you by</string>
+    <string name="team_name">kawan-kawan</string>
+    <string name="nikita_occ">Head Developer &amp; Team Leader</string>
+    <string name="nikita_name">Nikita Karamov</string>
+    <string name="daria_occ">Design &amp; Analytics</string>
+    <string name="daria_name">Daria Kovtun</string>
+    <string name="almaz_occ">Developer</string>
+    <string name="almaz_name">Almaz Khamedzhanov</string>
 </resources>
