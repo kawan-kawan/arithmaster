@@ -60,7 +60,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/source_sans_pro_light"
-        android:text="@string/timerDefault"
+        android:text="@string/timer_default"
         android:textColor="@color/grey80"
         android:textSize="36sp"
         android:visibility="gone"
@@ -98,7 +98,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/source_sans_pro_light"
             android:gravity="center"
-            android:text="@string/operationPlus"
+            android:text="@string/operation_plus"
             android:textColor="@color/grey80"
             android:textSize="64sp" />
 
@@ -119,7 +119,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/source_sans_pro_light"
             android:gravity="center"
-            android:text="@string/operationEquals"
+            android:text="@string/operation_equals"
             android:textColor="@color/grey80"
             android:textSize="64sp" />
 
@@ -144,7 +144,8 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        android:baselineAligned="false">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -155,22 +156,25 @@
             <Button
                 android:id="@+id/button1"
                 style="@style/KeyboardButton.Classic"
-                android:text="1" />
+                android:text="1"
+                tools:ignore="HardcodedText" />
 
             <Button
                 android:id="@+id/button4"
                 style="@style/KeyboardButton.Classic"
-                android:text="4" />
+                android:text="4"
+                tools:ignore="HardcodedText" />
 
             <Button
                 android:id="@+id/button7"
                 style="@style/KeyboardButton.Classic"
-                android:text="7" />
+                android:text="7"
+                tools:ignore="HardcodedText" />
 
             <Button
                 android:id="@+id/buttonPlusMinus"
                 style="@style/KeyboardButton.Classic"
-                android:text="±" />
+                android:text="@string/plus_minus" />
         </LinearLayout>
 
         <LinearLayout
@@ -182,22 +186,26 @@
             <Button
                 android:id="@+id/button2"
                 style="@style/KeyboardButton.Classic"
-                android:text="2" />
+                android:text="2"
+                tools:ignore="HardcodedText" />
 
             <Button
                 android:id="@+id/button5"
                 style="@style/KeyboardButton.Classic"
-                android:text="5" />
+                android:text="5"
+                tools:ignore="HardcodedText" />
 
             <Button
                 android:id="@+id/button8"
                 style="@style/KeyboardButton.Classic"
-                android:text="8" />
+                android:text="8"
+                tools:ignore="HardcodedText" />
 
             <Button
                 android:id="@+id/button0"
                 style="@style/KeyboardButton.Classic"
-                android:text="0" />
+                android:text="0"
+                tools:ignore="HardcodedText" />
         </LinearLayout>
 
         <LinearLayout
@@ -209,22 +217,25 @@
             <Button
                 android:id="@+id/button3"
                 style="@style/KeyboardButton.Classic"
-                android:text="3" />
+                android:text="3"
+                tools:ignore="HardcodedText" />
 
             <Button
                 android:id="@+id/button6"
                 style="@style/KeyboardButton.Classic"
-                android:text="6" />
+                android:text="6"
+                tools:ignore="HardcodedText" />
 
             <Button
                 android:id="@+id/button9"
                 style="@style/KeyboardButton.Classic"
-                android:text="9" />
+                android:text="9"
+                tools:ignore="HardcodedText" />
 
             <Button
                 android:id="@+id/buttonErase"
                 style="@style/KeyboardButton.Classic"
-                android:text="del" />
+                android:text="@string/del" />
         </LinearLayout>
 
         <LinearLayout
@@ -235,7 +246,8 @@
 
             <ImageButton
                 android:id="@+id/buttonSubmit"
-                style="@style/KeyboardButton.Submit" />
+                style="@style/KeyboardButton.Submit"
+                android:contentDescription="@string/submit" />
 
         </LinearLayout>
     </LinearLayout>

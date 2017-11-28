@@ -12,18 +12,14 @@ import android.widget.Toast;
 
 public class GameActivity extends AppCompatActivity {
 
-    TextView textView1,
-            textView2,
-            textView3,
-            operationField;
+    private TextView operationField;
 
-    int operation,
-            correctAnswer;
+    private int correctAnswer;
 
-    int round = 0;
-    int correctRounds = 0;
+    private int round = 0;
+    private int correctRounds = 0;
 
-    final int MAX_ROUNDS = 10;
+    private final int MAX_ROUNDS = 10;
 
     @SuppressLint("SetTextI18n") // не обращать внимания
     @Override
@@ -42,16 +38,13 @@ public class GameActivity extends AppCompatActivity {
         ConstraintLayout parent = findViewById(R.id.parentLayout); // "родитель" разметки
         TextView modeTitle = findViewById(R.id.modeTitle); // заголовок окна
 
-        textView1 = findViewById(R.id.operandOne); // поле первого числа
-        textView2 = findViewById(R.id.operandTwo); // поле второго числа
-        textView3 = findViewById(R.id.result); // поле третьего числа
         operationField = findViewById(R.id.operation); // операция
 
         // объединение полей для чисел в массив
         TextView[] textviews = new TextView[3];
-        textviews[0] = textView1;
-        textviews[1] = textView2;
-        textviews[2] = textView3;
+        textviews[0] = findViewById(R.id.operandOne);
+        textviews[1] = findViewById(R.id.operandTwo);
+        textviews[2] = findViewById(R.id.result);
 
         int toBeFilled; // обозначает индекс того поля, которое заполняет пользователь
 
@@ -111,12 +104,12 @@ public class GameActivity extends AppCompatActivity {
             // метод меняет положительное число на отрицательноеи наоборот
             if (textviews[toBeFilled].getText().length() != 0) { // если поле не пусто
                 if (textviews[toBeFilled].getText().charAt(0) != 45) { // если первый НЕ минус
-                    textviews[toBeFilled].setText("" + getText(R.string.operationMinus) + textviews[toBeFilled].getText());
+                    textviews[toBeFilled].setText("" + getText(R.string.operation_minus) + textviews[toBeFilled].getText());
                 } else {
                     textviews[toBeFilled].setText(textviews[toBeFilled].getText().subSequence(1, textviews[toBeFilled].getText().length()));
                 }
             } else {
-                textviews[toBeFilled].setText(getText(R.string.operationMinus));
+                textviews[toBeFilled].setText(getText(R.string.operation_minus));
             }
 
         });
@@ -133,7 +126,7 @@ public class GameActivity extends AppCompatActivity {
         // установка метода проверки на кнопку "подтвердить ответ"
         findViewById(R.id.buttonSubmit).setOnClickListener(v -> {
             if (textviews[toBeFilled].getText().length() != 0 &&
-                    !textviews[toBeFilled].getText().equals(getText(R.string.operationMinus))) {
+                    !textviews[toBeFilled].getText().equals(getText(R.string.operation_minus))) {
                 // конвертация ответа пользователя в int
                 final int userAnswer = Integer.parseInt(String.valueOf(textviews[toBeFilled].getText()));
                 // проверка на правильность ответа
@@ -160,8 +153,8 @@ public class GameActivity extends AppCompatActivity {
             int[] set = Randomizer.generate();
 
             // установка операции в поле
-            operation = set[0];
-            operationField.setText(operationToString(operation));
+
+            operationField.setText(operationToString(set[0]));
 
             // установка чисел в поля, не заполняемые пользователем
             for (int i = 0; i < textviews.length; i++) {
@@ -189,15 +182,15 @@ public class GameActivity extends AppCompatActivity {
     private String operationToString(int operation) {
         switch (operation) {
             case 0:
-                return String.valueOf(getText(R.string.operationPlus));
+                return String.valueOf(getText(R.string.operation_plus));
             case 1:
-                return String.valueOf(getText(R.string.operationMinus));
+                return String.valueOf(getText(R.string.operation_minus));
             case 2:
-                return String.valueOf(getText(R.string.operationMult));
+                return String.valueOf(getText(R.string.operation_mult));
             case 3:
-                return String.valueOf(getText(R.string.operationDiv));
+                return String.valueOf(getText(R.string.operation_div));
             default:
-                return String.valueOf(getText(R.string.operationPlus));
+                return String.valueOf(getText(R.string.operation_plus));
         }
     }
 
