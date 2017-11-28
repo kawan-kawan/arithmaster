@@ -7,7 +7,7 @@ class Randomizer {
     private static Random random = new Random();
 
 
-    static void setSmallNumber(int setS[]) {
+    private static int[] setSmallNumber(int setS[]) {
         setS[1] = random.nextInt(20) + 1;
         if (setS[1] < 6) {
             setS[2] = random.nextInt(20) + 1;
@@ -15,19 +15,20 @@ class Randomizer {
             setS[2] = random.nextInt(6) + 1;
         }
         setS[3] = Solver.solve(setS[1], setS[2], setS[0]);
+        return setS;
     }
 
     static int[] generate() {
-            int[] set = new int[4]; // 0 - операция, 1-2 - цифры, 3 - результат
+        int[] set = new int[4]; // 0 - операция, 1-2 - цифры, 3 - результат
 
         set[0] = random.nextInt(4);
 
-        if(set[0] == 2) { // более маленькие числа для умножения
-            setSmallNumber(set);
+        if (set[0] == 2) { // более маленькие числа для умножения
+            set = setSmallNumber(set);
             return set;
         } else {
-            if(set[0] == 3) { // топ развод проверки деления нацело
-                setSmallNumber(set);
+            if (set[0] == 3) { // топ развод проверки деления нацело
+                set = setSmallNumber(set);
                 set[3] = set[1];
                 set[1] = set[3] * set[2];
                 return set;
