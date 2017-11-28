@@ -1,11 +1,29 @@
 <resources>
 
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/arithmasterMain</item>
+    </style>
+
+    <style name="KeyboardButton">
+        <item name="android:textSize">36sp</item>
+        <item name="android:fontFamily">@font/source_sans_pro_light</item>
+        <item name="android:layout_margin">@dimen/buttonMargin</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="KeyboardButton.Classic" parent="KeyboardButton">
+        <item name="android:background">@drawable/button_classic</item>
+    </style>
+
+    <style name="KeyboardButton.Submit" parent="KeyboardButton">
+        <item name="android:background">@drawable/button_submit</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:src">@drawable/ic_check</item>
+
     </style>
 
 </resources>

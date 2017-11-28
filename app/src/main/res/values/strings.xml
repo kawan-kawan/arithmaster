@@ -1,4 +1,31 @@
 <resources>
-    <string name="app_name">Arithmaster</string>
-    <string name="tagline">This is the future Arithmaster app by the kawan-kawan team.</string>
+    <string name="app_name" translatable="false">Arithmaster</string>
+    <string name="title_activity_game" translatable="false">GameActivity</string>
+
+    <string name="classic_mode_name">Classic</string>
+    <string name="info_name">Info</string>
+
+    <string name="back_to_menu">Back to menu</string>
+    <string name="pause">Pause</string>
+    <string name="timer_default" translatable="false">00:00</string>
+
+    <string name="operation_plus" translatable="false">+</string>
+    <string name="operation_minus" translatable="false">-</string>
+    <string name="operation_mult" translatable="false">×</string>
+    <string name="operation_div" translatable="false">÷</string>
+    <string name="operation_equals" translatable="false">=</string>
+
+    <string name="plus_minus" translatable="false">±</string>
+    <string name="del">DEL</string>
+    <string name="submit">Submit</string>
+
+    <string name="version">version 0.1</string>
+    <string name="brought_to_you">brought to you by</string>
+    <string name="team_name">kawan-kawan</string>
+    <string name="nikita_occ">Head Developer &amp; Team Leader</string>
+    <string name="nikita_name">Nikita Karamov</string>
+    <string name="daria_occ">Design &amp; Analytics</string>
+    <string name="daria_name">Daria Kovtun</string>
+    <string name="almaz_occ">Developer</string>
+    <string name="almaz_name">Almaz Khamedzhanov</string>
 </resources>

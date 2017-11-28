@@ -7,7 +7,11 @@ android {
         minSdkVersion 21
         //noinspection OldTargetApi
         targetSdkVersion 26
-        versionCode 27
+<<<<<<< HEAD
+        versionCode 21
+=======
+        versionCode 25
+>>>>>>> feature/classic-mode
         versionName "0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
