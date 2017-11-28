@@ -20,6 +20,11 @@ public class GameActivity extends AppCompatActivity {
     int operation,
             correctAnswer;
 
+    int round = 0;
+    int correctRounds = 0;
+
+    final int MAX_ROUNDS = 10;
+
     @SuppressLint("SetTextI18n") // не обращать внимания
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,6 +142,11 @@ public class GameActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),
                         correct ? "Correct!" : "Incorrect!",
                         Toast.LENGTH_SHORT).show();
+
+                if (correct) {
+                    correctRounds++;
+                }
+
                 // повторная инициализация; следующий раунд
                 initiate(textviews, toBeFilled);
             }
@@ -145,25 +155,34 @@ public class GameActivity extends AppCompatActivity {
 
 
     private void initiate(TextView[] textviews, int toBeFilled) {
-        // генерирует операцию и числа
-        int[] set = Randomizer.generate();
+        if (round < MAX_ROUNDS) {
+            // генерирует операцию и числа
+            int[] set = Randomizer.generate();
 
-        // установка операции в поле
-        operation = set[0];
-        operationField.setText(operationToString(operation));
+            // установка операции в поле
+            operation = set[0];
+            operationField.setText(operationToString(operation));
 
-        // установка чисел в поля, не заполняемые пользователем
-        for (int i = 0; i < textviews.length; i++) {
-            if (i != toBeFilled) {
-                textviews[i].setText(String.valueOf(set[i + 1]));
+            // установка чисел в поля, не заполняемые пользователем
+            for (int i = 0; i < textviews.length; i++) {
+                if (i != toBeFilled) {
+                    textviews[i].setText(String.valueOf(set[i + 1]));
+                }
             }
+
+            // поле, заполняемое пользователем, очищается
+            textviews[toBeFilled].setText("");
+
+            // установка корректного ответа
+            correctAnswer = set[3];
+
+            round++;
+        } else {
+            Toast.makeText(getApplicationContext(),
+                    "Nice job! You answered " + correctRounds + " out of " + MAX_ROUNDS + " correctly!",
+                    Toast.LENGTH_LONG).show();
+            finish();
         }
-
-        // поле, заполняемое пользователем, очищается
-        textviews[toBeFilled].setText("");
-
-        // установка корректного ответа
-        correctAnswer = set[3];
     }
 
     // метод принимает номер операции и возвращает соответствующий знак в форме строки
