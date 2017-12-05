@@ -37,6 +37,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+        <activity android:name=".ResultActivity"
+            android:label="@string/result_name"
+            android:parentActivityName=".GameActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GameActivity" />
+        </activity>
     </application>
 
 </manifest>

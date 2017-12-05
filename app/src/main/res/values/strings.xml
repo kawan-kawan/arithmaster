@@ -4,6 +4,7 @@
 
     <string name="classic_mode_name">Classic</string>
     <string name="info_name">Info</string>
+    <string name="result_name">Result</string>
 
     <string name="back_to_menu">Back to menu</string>
     <string name="pause">Pause</string>
