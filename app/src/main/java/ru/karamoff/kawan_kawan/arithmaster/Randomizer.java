@@ -4,10 +4,10 @@ import java.util.Random;
 
 class Randomizer {
 
-    private final static Random RANDOM = new Random();
+    private static final Random RANDOM = new Random();
 
 
-    private static int[] setSmallNumber(int setS[]) {
+    private static int[] setSmallNumber(int[] setS) {
         setS[1] = RANDOM.nextInt(20) + 1;
         if (setS[1] < 6) {
             setS[2] = RANDOM.nextInt(20) + 1;

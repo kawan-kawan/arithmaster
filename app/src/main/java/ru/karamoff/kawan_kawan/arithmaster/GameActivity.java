@@ -30,10 +30,6 @@ public class GameActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_game);
 
-        // получение информации о режиме игры
-        Intent intent = getIntent();
-        int gamemode = intent.getIntExtra("gamemode", 0);
-
         // получение объектов для изменения в дальнейшем
         ConstraintLayout parent = findViewById(R.id.parentLayout); // "родитель" разметки
         TextView modeTitle = findViewById(R.id.modeTitle); // заголовок окна
@@ -47,6 +43,10 @@ public class GameActivity extends AppCompatActivity {
         textviews[2] = findViewById(R.id.result);
 
         int toBeFilled; // обозначает индекс того поля, которое заполняет пользователь
+
+        // получение информации о режиме игры
+        Intent intent = getIntent();
+        int gamemode = intent.getIntExtra("gamemode", 0);
 
         // меняет окно в зависимости от режима игры
         switch (gamemode) {
@@ -82,13 +82,14 @@ public class GameActivity extends AppCompatActivity {
         for (int i = 0; i < digits.length; i++) {
             final int digit = i;
             digits[i].setOnClickListener(v -> {
-                // метод добавляет цифры в поле ответа при нажатии (не более четырёх цифр)
-                if (textviews[toBeFilled].getText().length() > 0 &&         // если длина больше нуля И
-                        textviews[toBeFilled].getText().charAt(0) == 45 &&  // если первый минус И
-                        textviews[toBeFilled].getText().length() <= 4 ||    // если длина меньше 5
-
-                        textviews[toBeFilled].getText().length() <= 3) {    // ИЛИ если длина меньше 3
-                    textviews[toBeFilled].setText(textviews[toBeFilled].getText() + String.valueOf(digit));
+                // метод добавляет цифры в поле ответа при нажатии (не более четырёх цифр, с минусом
+                // или без него)
+                if (textviews[toBeFilled].getText().length() > 0
+                        && textviews[toBeFilled].getText().charAt(0) == 45
+                        && textviews[toBeFilled].getText().length() <= 4
+                        || textviews[toBeFilled].getText().length() <= 3) {
+                    textviews[toBeFilled].setText(
+                            textviews[toBeFilled].getText() + String.valueOf(digit));
                 }
             });
         }
@@ -96,7 +97,9 @@ public class GameActivity extends AppCompatActivity {
         findViewById(R.id.buttonErase).setOnClickListener(v -> {
             // метод стирает цифры при нажатии на "DEL"
             if (textviews[toBeFilled].getText().length() != 0) {
-                textviews[toBeFilled].setText(textviews[toBeFilled].getText().subSequence(0, textviews[toBeFilled].getText().length() - 1));
+                textviews[toBeFilled].setText(
+                        textviews[toBeFilled].getText()
+                                .subSequence(0, textviews[toBeFilled].getText().length() - 1));
             }
         });
 
@@ -106,7 +109,9 @@ public class GameActivity extends AppCompatActivity {
                 if (textviews[toBeFilled].getText().charAt(0) != 45) { // если первый НЕ минус
                     textviews[toBeFilled].setText("" + getText(R.string.operation_minus) + textviews[toBeFilled].getText());
                 } else {
-                    textviews[toBeFilled].setText(textviews[toBeFilled].getText().subSequence(1, textviews[toBeFilled].getText().length()));
+                    textviews[toBeFilled].setText(
+                            textviews[toBeFilled].getText()
+                                    .subSequence(1, textviews[toBeFilled].getText().length()));
                 }
             } else {
                 textviews[toBeFilled].setText(getText(R.string.operation_minus));
@@ -125,12 +130,16 @@ public class GameActivity extends AppCompatActivity {
 
         // установка метода проверки на кнопку "подтвердить ответ"
         findViewById(R.id.buttonSubmit).setOnClickListener(v -> {
-            if (textviews[toBeFilled].getText().length() != 0 &&
-                    !textviews[toBeFilled].getText().equals(getText(R.string.operation_minus))) {
+            if (textviews[toBeFilled].getText().length() != 0
+                    && !textviews[toBeFilled].getText().equals(getText(R.string.operation_minus))) {
+
                 // конвертация ответа пользователя в int
-                final int userAnswer = Integer.parseInt(String.valueOf(textviews[toBeFilled].getText()));
+                final int userAnswer = Integer.parseInt(
+                        String.valueOf(textviews[toBeFilled].getText()));
+
                 // проверка на правильность ответа
                 boolean correct = correctAnswer == userAnswer;
+
                 // высвечивание результата
                 Toast.makeText(getApplicationContext(),
                         correct ? "Correct!" : "Incorrect!",
@@ -153,7 +162,6 @@ public class GameActivity extends AppCompatActivity {
             int[] set = Randomizer.generate();
 
             // установка операции в поле
-
             operationField.setText(operationToString(set[0]));
 
             // установка чисел в поля, не заполняемые пользователем
@@ -166,13 +174,15 @@ public class GameActivity extends AppCompatActivity {
             // поле, заполняемое пользователем, очищается
             textviews[toBeFilled].setText("");
 
-            // установка корректного ответа
+            // установка корректного ответа в память для дальнейшей сверки
             correctAnswer = set[3];
 
             round++;
         } else {
             Toast.makeText(getApplicationContext(),
-                    "Nice job! You answered " + correctRounds + " out of " + MAX_ROUNDS + " correctly!",
+                    "Nice job! You answered "
+                            + correctRounds + " out of " + MAX_ROUNDS
+                            + " correctly!",
                     Toast.LENGTH_LONG).show();
             finish();
         }
