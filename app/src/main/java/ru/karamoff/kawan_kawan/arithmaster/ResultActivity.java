@@ -35,7 +35,7 @@ public class ResultActivity extends AppCompatActivity {
         scoreTV.setText(getResources().getStringArray(R.array.scores)[score]);
 
         TextView heading = findViewById(R.id.textViewHeading);
-        heading.setText(score >= 3 ? getResources().getString(R.string.end_good)
+        heading.setText(score <= 2 ? getResources().getString(R.string.end_good)
                 : getResources().getString(R.string.end_not_good));
 
         int gamemode = intent.getIntExtra("gamemode", 0);
