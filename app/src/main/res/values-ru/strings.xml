@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="classic_mode_name">Классика</string>
+    <string name="info_name">Инфо</string>
+    <string name="result_name">Результат</string>
+    <string name="end_good">Хорошо сыграно!</string>
+    <string name="end_not_good">Неплохая попытка!</string>
+    <string name="time">Время</string>
+    <string name="correct">Правильно</string>
+    <string name="grade">Оценка</string>
+    <string name="try_again">Ещё раз?</string>
+    <string name="back_to_menu">Назад в меню</string>
+    <string name="pause">Пауза</string>
+    <string name="submit">Отправить</string>
+    <string name="version">версия</string>
+    <string name="brought_to_you">разработано</string>
+    <string name="nikita_occ">Ведущий разработчик</string>
+    <string name="nikita_name">Никита Карамов</string>
+    <string name="daria_occ">Дизайнер и аналитик</string>
+    <string name="daria_name">Дарья Ковтун</string>
+    <string name="almaz_occ">Разработчик</string>
+    <string name="almaz_name">Алмаз Хамеджанов</string>
+    <string name="score_1">5+</string>
+    <string name="score_2">5</string>
+    <string name="score_3">4</string>
+    <string name="score_4">3</string>
+    <string name="score_5">2</string>
+    <string name="score_6">1</string>
+</resources>
