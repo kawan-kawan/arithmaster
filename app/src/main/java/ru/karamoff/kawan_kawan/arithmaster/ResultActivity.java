@@ -56,7 +56,7 @@ public class ResultActivity extends AppCompatActivity {
         findViewById(R.id.backButton).setOnClickListener(v -> finish());
     }
 
-    int calculateScore(double correctness, double time) {
+    private int calculateScore(double correctness, double time) {
         if (correctness > time * 0.25 + 0.8) {
             return 0;
         } else if (correctness > time * 0.25 + 0.6) {

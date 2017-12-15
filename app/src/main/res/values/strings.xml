@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name" translatable="false">Arithmaster</string>
-    <string name="title_activity_game" translatable="false">GameActivity</string>
 
     <string name="classic_mode_name">Classic</string>
     <string name="info_name">Info</string>

@@ -8,8 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -172,14 +170,7 @@ public class GameActivity extends AppCompatActivity {
                         String.valueOf(textviews[toBeFilled].getText()));
 
                 // проверка на правильность ответа
-                boolean correct = correctAnswer == userAnswer;
-
-                // высвечивание результата
-                Toast.makeText(getApplicationContext(),
-                        correct ? "Correct!" : "Incorrect!",
-                        Toast.LENGTH_SHORT).show();
-
-                if (correct) {
+                if (correctAnswer == userAnswer) {
                     correctRounds++;
                 }
 

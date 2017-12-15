@@ -83,7 +83,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/margin"
+                android:layout_marginEnd="@dimen/margin"
                 android:fontFamily="@font/source_sans_pro_light"
                 android:text="@string/time"
                 android:textAlignment="textEnd"
@@ -95,9 +95,9 @@
                 android:id="@+id/timeTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin"
+                android:layout_marginStart="@dimen/margin"
                 android:fontFamily="@font/source_sans_pro_light"
-                android:text="TextView"
+                android:text=""
                 android:textColor="@color/grey80"
                 android:textSize="24sp" />
         </TableRow>
@@ -111,7 +111,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/margin"
+                android:layout_marginEnd="@dimen/margin"
                 android:fontFamily="@font/source_sans_pro_light"
                 android:text="@string/correct"
                 android:textAlignment="textEnd"
@@ -123,9 +123,9 @@
                 android:id="@+id/correctTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin"
+                android:layout_marginStart="@dimen/margin"
                 android:fontFamily="@font/source_sans_pro_light"
-                android:text="TextView"
+                android:text=""
                 android:textColor="@color/grey80"
                 android:textSize="24sp" />
         </TableRow>
@@ -138,7 +138,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/margin"
+                android:layout_marginEnd="@dimen/margin"
                 android:fontFamily="@font/source_sans_pro_light"
                 android:text="@string/score"
                 android:textAlignment="textEnd"
@@ -150,9 +150,9 @@
                 android:id="@+id/scoreTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin"
+                android:layout_marginStart="@dimen/margin"
                 android:fontFamily="@font/source_sans_pro_light"
-                android:text="TextView"
+                android:text=""
                 android:textColor="@color/grey80"
                 android:textSize="24sp" />
         </TableRow>
