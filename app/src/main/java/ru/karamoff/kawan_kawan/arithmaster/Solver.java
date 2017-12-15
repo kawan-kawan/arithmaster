@@ -1,6 +1,8 @@
 package ru.karamoff.kawan_kawan.arithmaster;
 
 class Solver {
+    private Solver(){}
+
     static int solve(int number1, int number2, int operation) {
         switch (operation) {
             case 0:
