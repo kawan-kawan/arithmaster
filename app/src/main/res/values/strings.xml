@@ -7,7 +7,7 @@
 
     <string name="back_to_menu">Back to menu</string>
     <string name="pause">Pause</string>
-    <string name="timer_default" translatable="false">00:00</string>
+    <string name="timer_default" translatable="false">01:00</string>
 
     <string name="operation_plus" translatable="false">+</string>
     <string name="operation_minus" translatable="false">-</string>
@@ -16,12 +16,13 @@
     <string name="operation_equals" translatable="false">=</string>
 
     <string name="plus_minus" translatable="false">±</string>
-    <string name="del">DEL</string>
+    <string name="del" translatable="false">DEL</string>
     <string name="submit">Submit</string>
 
-    <string name="version">version 0.1</string>
+    <string name="version">version 0.2</string>
+
     <string name="brought_to_you">brought to you by</string>
-    <string name="team_name">kawan-kawan</string>
+    <string name="team_name" translatable="false">kawan-kawan</string>
     <string name="nikita_occ">Head Developer &amp; Team Leader</string>
     <string name="nikita_name">Nikita Karamov</string>
     <string name="daria_occ">Design &amp; Analytics</string>
