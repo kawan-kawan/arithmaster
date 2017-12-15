@@ -10,6 +10,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class GameActivity extends AppCompatActivity {
 
     private TextView operationField;
@@ -20,6 +24,12 @@ public class GameActivity extends AppCompatActivity {
     private int correctRounds = 0;
 
     private final int MAX_ROUNDS = 10;
+    private final int TIME = 10 * 1000;
+
+    private Date endTime, startTime;
+
+
+    private Timer timer;
 
     @SuppressLint("SetTextI18n") // не обращать внимания
     @Override
@@ -128,6 +138,24 @@ public class GameActivity extends AppCompatActivity {
         // запускает игру
         initiate(textviews, toBeFilled);
 
+
+        timer = new Timer();
+
+        startTime = new Date();
+        endTime = new Date(startTime.getTime() + TIME);
+
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                Date nowTime = new Date();
+                if (nowTime.after(endTime)) {
+                    endGame(nowTime);
+                }
+            }
+        }, 0, 1000);
+
+        //TODO: add timer to upadte the timer ingame
+
         // установка метода проверки на кнопку "подтвердить ответ"
         findViewById(R.id.buttonSubmit).setOnClickListener(v -> {
             if (textviews[toBeFilled].getText().length() != 0
@@ -157,7 +185,7 @@ public class GameActivity extends AppCompatActivity {
 
 
     private void initiate(TextView[] textviews, int toBeFilled) {
-        if (round < MAX_ROUNDS) {
+        if (round < MAX_ROUNDS) { //TODO: check if working
             // генерирует операцию и числа
             int[] set = Randomizer.generate();
 
@@ -179,13 +207,19 @@ public class GameActivity extends AppCompatActivity {
 
             round++;
         } else {
-            Toast.makeText(getApplicationContext(),
-                    "Nice job! You answered "
-                            + correctRounds + " out of " + MAX_ROUNDS
-                            + " correctly!",
-                    Toast.LENGTH_LONG).show();
-            finish();
+            endGame(new Date());
         }
+    }
+
+    private void endGame(Date check) {
+        timer.cancel();
+        long timeInMillis = check.getTime() - startTime.getTime();
+        runOnUiThread(() -> Toast.makeText(getApplicationContext(),
+                "You answered "
+                        + correctRounds + " out of " + MAX_ROUNDS
+                        + " correctly in " + timeInMillis + "ms", //TODO: format time
+                Toast.LENGTH_LONG).show());
+        finish();
     }
 
     // метод принимает номер операции и возвращает соответствующий знак в форме строки
