@@ -6,8 +6,8 @@
     android:id="@+id/parentLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ru.karamoff.kawan_kawan.arithmaster.GameActivity"
-    android:background="@drawable/gradient_classic">
+    android:background="@drawable/gradient_classic"
+    tools:context="ru.karamoff.kawan_kawan.arithmaster.GameActivity">
 
     <LinearLayout
         android:id="@+id/topBarLayout"
@@ -63,7 +63,7 @@
         android:text="@string/timer_default"
         android:textColor="@color/grey80"
         android:textSize="36sp"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topBarLayout" />
@@ -141,11 +141,11 @@
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:baselineAligned="false"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:baselineAligned="false">
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -247,7 +247,7 @@
             <ImageButton
                 android:id="@+id/buttonSubmit"
                 style="@style/KeyboardButton.Submit"
-                android:contentDescription="@string/submit" />
+                android:contentDescription="@string/check" />
 
         </LinearLayout>
     </LinearLayout>

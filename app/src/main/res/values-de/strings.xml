@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="classic_mode_name">Klassik</string>
+    <string name="info_name">Info</string>
+    <string name="result_name">Ergebnis</string>
+    <string name="end_good">Gut gemacht!</string>
+    <string name="end_not_good">Netter Versuch!</string>
+    <string name="time">Zeit</string>
+    <string name="correct">Richtig</string>
+    <string name="grade">Note</string>
+    <string name="try_again">Nochmal?</string>
+    <string name="back_to_menu">Zurück ins Menü</string>
+    <string name="pause">Pause</string>
+    <string name="check">Prüfen</string>
+    <string name="version">Version</string>
+    <string name="brought_to_you">gemacht von</string>
+    <string name="nikita_occ">Hauptentwickler</string>
+    <string name="nikita_name">Nikita Karamow</string>
+    <string name="daria_occ">Designer und Analytiker</string>
+    <string name="daria_name">Daria Kowtun</string>
+    <string name="almaz_occ">Entwickler</string>
+    <string name="almaz_name">Almaz Hamedshanow</string>
+    <string name="score_0">1</string>
+    <string name="score_1">2</string>
+    <string name="score_2">3</string>
+    <string name="score_3">4</string>
+    <string name="score_4">5</string>
+    <string name="score_5">6</string>
+</resources>

@@ -1,13 +1,20 @@
 <resources>
     <string name="app_name" translatable="false">Arithmaster</string>
-    <string name="title_activity_game" translatable="false">GameActivity</string>
 
     <string name="classic_mode_name">Classic</string>
     <string name="info_name">Info</string>
+    <string name="result_name">Result</string>
 
+    <string name="end_good">Good game!</string>
+    <string name="end_not_good">Nice try!</string>
+    <string name="time">Time</string>bna
+    <string name="correct">Correct</string>
+    <string name="grade">Grade</string>
+
+    <string name="try_again">Try again?</string>
     <string name="back_to_menu">Back to menu</string>
     <string name="pause">Pause</string>
-    <string name="timer_default" translatable="false">00:00</string>
+    <string name="timer_default" translatable="false">01:00</string>
 
     <string name="operation_plus" translatable="false">+</string>
     <string name="operation_minus" translatable="false">-</string>
@@ -16,16 +23,34 @@
     <string name="operation_equals" translatable="false">=</string>
 
     <string name="plus_minus" translatable="false">±</string>
-    <string name="del">DEL</string>
-    <string name="submit">Submit</string>
+    <string name="del" translatable="false">DEL</string>
+    <string name="check">Check</string>
 
-    <string name="version">version 0.1</string>
+    <string name="version">version</string>
+    <string name="version_code" translatable="false">0.2</string>
+
     <string name="brought_to_you">brought to you by</string>
-    <string name="team_name">kawan-kawan</string>
-    <string name="nikita_occ">Head Developer &amp; Team Leader</string>
+    <string name="team_name" translatable="false">kawan-kawan</string>
+    <string name="nikita_occ">Head Developer</string>
     <string name="nikita_name">Nikita Karamov</string>
-    <string name="daria_occ">Design &amp; Analytics</string>
+    <string name="daria_occ">Designer &amp; Analytic</string>
     <string name="daria_name">Daria Kovtun</string>
     <string name="almaz_occ">Developer</string>
     <string name="almaz_name">Almaz Khamedzhanov</string>
+
+    <string name="score_0">A+</string>
+    <string name="score_1">A</string>
+    <string name="score_2">B</string>
+    <string name="score_3">C</string>
+    <string name="score_4">D</string>
+    <string name="score_5">F</string>
+
+    <string-array name="scores">
+        <item>@string/score_0</item>
+        <item>@string/score_1</item>
+        <item>@string/score_2</item>
+        <item>@string/score_3</item>
+        <item>@string/score_4</item>
+        <item>@string/score_5</item>
+    </string-array>
 </resources>
