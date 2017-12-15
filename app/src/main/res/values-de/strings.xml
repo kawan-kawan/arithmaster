@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Arithmaster</string>
     <string name="classic_mode_name">Klassik</string>
     <string name="info_name">Info</string>
     <string name="result_name">Ergebnis</string>

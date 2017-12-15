@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="classic_mode_name">Klasika</string>
+    <string name="info_name">Informoj</string>
+    <string name="result_name">Rezulto</string>
+    <string name="time">Tempo</string>
+    <string name="correct">Prave</string>
+    <string name="grade">Noto</string>
+    <string name="try_again">Peni denove?</string>
+    <string name="back_to_menu">Dorso en menuo</string>
+    <string name="pause">Paŭzo</string>
+    <string name="version">versio</string>
+    <string name="brought_to_you">estigi</string>
+    <string name="nikita_occ">Ĉefa ellaboranto</string>
+    <string name="nikita_name">Nikito Karamov</string>
+    <string name="daria_occ">Dizajnisto kaj analizisto</string>
+    <string name="daria_name">Daria Kovtun</string>
+    <string name="almaz_occ">Ellaboranto</string>
+    <string name="almaz_name">Almazo Ĥameĝanov</string>
+    <string name="score_0">A+</string>
+    <string name="score_1">A</string>
+    <string name="score_2">B</string>
+    <string name="score_3">C</string>
+    <string name="score_4">D</string>
+    <string name="score_5">F</string>
+    <string name="end_good">La partio esti bone!</string>
+    <string name="end_not_good">Simpatia provado!</string>
+    <string name="check">Kontroli</string>
+</resources>

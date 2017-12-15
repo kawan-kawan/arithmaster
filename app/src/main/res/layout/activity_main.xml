@@ -53,7 +53,7 @@
             android:letterSpacing="0.06"
             android:text="@string/info_name"
             android:textColor="@android:color/white"
-            android:textSize="24sp"
+            android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/classicButton" />
 
