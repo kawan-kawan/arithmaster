@@ -11,7 +11,7 @@
     <string name="try_again">Ещё раз?</string>
     <string name="back_to_menu">Назад в меню</string>
     <string name="pause">Пауза</string>
-    <string name="submit">Отправить</string>
+    <string name="check">Проверить</string>
     <string name="version">версия</string>
     <string name="brought_to_you">разработано</string>
     <string name="nikita_occ">Ведущий разработчик</string>
@@ -20,10 +20,10 @@
     <string name="daria_name">Дарья Ковтун</string>
     <string name="almaz_occ">Разработчик</string>
     <string name="almaz_name">Алмаз Хамеджанов</string>
-    <string name="score_1">5+</string>
-    <string name="score_2">5</string>
-    <string name="score_3">4</string>
-    <string name="score_4">3</string>
-    <string name="score_5">2</string>
-    <string name="score_6">1</string>
+    <string name="score_0">5+</string>
+    <string name="score_1">5</string>
+    <string name="score_2">4</string>
+    <string name="score_3">3</string>
+    <string name="score_4">2</string>
+    <string name="score_5">1</string>
 </resources>
