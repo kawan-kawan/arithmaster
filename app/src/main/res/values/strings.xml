@@ -37,4 +37,20 @@
     <string name="daria_name">Daria Kovtun</string>
     <string name="almaz_occ">Developer</string>
     <string name="almaz_name">Almaz Khamedzhanov</string>
+
+    <string name="score_1">A+</string>
+    <string name="score_2">A</string>
+    <string name="score_3">B</string>
+    <string name="score_4">C</string>
+    <string name="score_5">D</string>
+    <string name="score_6">F</string>
+
+    <string-array name="scores">
+        <item>@string/score_1</item>
+        <item>@string/score_2</item>
+        <item>@string/score_3</item>
+        <item>@string/score_4</item>
+        <item>@string/score_5</item>
+        <item>@string/score_6</item>
+    </string-array>
 </resources>

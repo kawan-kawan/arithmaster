@@ -18,7 +18,7 @@ public class GameActivity extends AppCompatActivity {
 
     private TextView operationField;
 
-    private int correctAnswer;
+    private int correctAnswer, gamemode;
 
     private int round = 0;
     private int correctRounds = 0;
@@ -56,7 +56,7 @@ public class GameActivity extends AppCompatActivity {
 
         // получение информации о режиме игры
         Intent intent = getIntent();
-        int gamemode = intent.getIntExtra("gamemode", 0);
+        gamemode = intent.getIntExtra("gamemode", 0);
 
         // меняет окно в зависимости от режима игры
         switch (gamemode) {
@@ -220,13 +220,14 @@ public class GameActivity extends AppCompatActivity {
     @SuppressLint("DefaultLocale")
     private void endGame(Date check) {
         timer.cancel();
-        long spent = Math.round((double) (check.getTime() - startTime.getTime()) / 1000)
-                * 1000;
-        Date timeSpent = new Date(spent);
-        runOnUiThread(() -> Toast.makeText(getApplicationContext(),
-                String.format("You answered %d out of %d correctly in %tM:%tS seconds",
-                        correctRounds, MAX_ROUNDS, timeSpent, timeSpent),
-                Toast.LENGTH_LONG).show());
+
+        long spent = Math.round((double) (check.getTime() - startTime.getTime()) / 1000) * 1000;
+        Intent resultIntent = new Intent(GameActivity.this, ResultActivity.class);
+        resultIntent.putExtra("time", new long[]{spent, TIME});
+        resultIntent.putExtra("correct", new int[]{correctRounds, MAX_ROUNDS});
+        resultIntent.putExtra("gamemode", gamemode);
+        startActivity(resultIntent);
+
         finish();
     }
 
