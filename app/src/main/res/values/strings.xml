@@ -6,6 +6,13 @@
     <string name="info_name">Info</string>
     <string name="result_name">Result</string>
 
+    <string name="end_good">Good game!</string>
+    <string name="end_not_good">Nice try!</string>
+    <string name="time">Time</string>bna
+    <string name="correct">Correct</string>
+    <string name="score">Score</string>
+
+    <string name="try_again">Try again</string>
     <string name="back_to_menu">Back to menu</string>
     <string name="pause">Pause</string>
     <string name="timer_default" translatable="false">00:00</string>
