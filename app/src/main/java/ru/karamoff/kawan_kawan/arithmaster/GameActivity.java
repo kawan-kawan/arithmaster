@@ -24,7 +24,7 @@ public class GameActivity extends AppCompatActivity {
     private int correctRounds = 0;
 
     private final int MAX_ROUNDS = 10;
-    private final int TIME = 10 * 1000;
+    private final int TIME = 60 * 1000;
 
     private Date endTime, startTime;
 
@@ -138,23 +138,29 @@ public class GameActivity extends AppCompatActivity {
         // запускает игру
         initiate(textviews, toBeFilled);
 
-
+        // создаёт таймер
         timer = new Timer();
+        TextView timerTV = findViewById(R.id.timer);
 
         startTime = new Date();
         endTime = new Date(startTime.getTime() + TIME);
 
+        //каждую секунду проверяет, не пора ли закончить игру
         timer.scheduleAtFixedRate(new TimerTask() {
+            @SuppressLint("DefaultLocale")
             @Override
             public void run() {
                 Date nowTime = new Date();
                 if (nowTime.after(endTime)) {
                     endGame(nowTime);
+                } else {
+                    long left = Math.round((double) (endTime.getTime() - nowTime.getTime()) / 1000)
+                            * 1000;
+                    Date timeLeft = new Date(left);
+                    runOnUiThread(() -> timerTV.setText(String.format("%tM:%tS", timeLeft, timeLeft)));
                 }
             }
         }, 0, 1000);
-
-        //TODO: add timer to upadte the timer ingame
 
         // установка метода проверки на кнопку "подтвердить ответ"
         findViewById(R.id.buttonSubmit).setOnClickListener(v -> {
@@ -185,7 +191,7 @@ public class GameActivity extends AppCompatActivity {
 
 
     private void initiate(TextView[] textviews, int toBeFilled) {
-        if (round < MAX_ROUNDS) { //TODO: check if working
+        if (round < MAX_ROUNDS) {
             // генерирует операцию и числа
             int[] set = Randomizer.generate();
 
@@ -211,13 +217,15 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("DefaultLocale")
     private void endGame(Date check) {
         timer.cancel();
-        long timeInMillis = check.getTime() - startTime.getTime();
+        long spent = Math.round((double) (check.getTime() - startTime.getTime()) / 1000)
+                * 1000;
+        Date timeSpent = new Date(spent);
         runOnUiThread(() -> Toast.makeText(getApplicationContext(),
-                "You answered "
-                        + correctRounds + " out of " + MAX_ROUNDS
-                        + " correctly in " + timeInMillis + "ms", //TODO: format time
+                String.format("You answered %d out of %d correctly in %tM:%tS seconds",
+                        correctRounds, MAX_ROUNDS, timeSpent, timeSpent),
                 Toast.LENGTH_LONG).show());
         finish();
     }
