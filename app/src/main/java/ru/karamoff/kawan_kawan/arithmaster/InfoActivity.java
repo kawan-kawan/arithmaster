@@ -3,6 +3,7 @@ package ru.karamoff.kawan_kawan.arithmaster;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 public class InfoActivity extends AppCompatActivity {
 
@@ -13,6 +14,9 @@ public class InfoActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_info);
+
+        TextView version = findViewById(R.id.textView0);
+        version.setText(String.format("%s %s", getString(R.string.version), getString(R.string.version_code)));
 
         findViewById(R.id.backButton).setOnClickListener(v -> finish());
     }

@@ -247,7 +247,7 @@
             <ImageButton
                 android:id="@+id/buttonSubmit"
                 style="@style/KeyboardButton.Submit"
-                android:contentDescription="@string/submit" />
+                android:contentDescription="@string/check" />
 
         </LinearLayout>
     </LinearLayout>

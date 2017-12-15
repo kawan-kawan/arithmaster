@@ -140,7 +140,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/margin"
                 android:fontFamily="@font/source_sans_pro_light"
-                android:text="@string/score"
+                android:text="@string/grade"
                 android:textAlignment="textEnd"
                 android:textColor="@color/grey80"
                 android:textSize="24sp"
