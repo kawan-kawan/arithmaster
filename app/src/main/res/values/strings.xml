@@ -27,7 +27,6 @@
     <string name="check">Check</string>
 
     <string name="version">version</string>
-    <string name="version_code" translatable="false">0.2</string>
 
     <string name="brought_to_you">brought to you by</string>
     <string name="team_name" translatable="false">kawan-kawan</string>

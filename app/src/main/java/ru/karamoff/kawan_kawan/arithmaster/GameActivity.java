@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -16,20 +17,21 @@ public class GameActivity extends AppCompatActivity {
 
     private TextView operationField;
 
-    private int correctAnswer, gamemode;
+    private int correctAnswer;
+    private int gamemode;
 
     private int round = 0;
     private int correctRounds = 0;
-
     private final int MAX_ROUNDS = 10;
+
     private final int TIME = 60 * 1000;
 
-    private Date endTime, startTime;
+    private Date startTime;
+    private Date endTime;
 
 
     private Timer timer;
 
-    @SuppressLint("SetTextI18n") // не обращать внимания
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // стартовая инициализация
@@ -97,7 +99,7 @@ public class GameActivity extends AppCompatActivity {
                         && textviews[toBeFilled].getText().length() <= 4
                         || textviews[toBeFilled].getText().length() <= 3) {
                     textviews[toBeFilled].setText(
-                            textviews[toBeFilled].getText() + String.valueOf(digit));
+                            String.format("%s%s", textviews[toBeFilled].getText(), String.valueOf(digit)));
                 }
             });
         }
@@ -115,7 +117,7 @@ public class GameActivity extends AppCompatActivity {
             // метод меняет положительное число на отрицательноеи наоборот
             if (textviews[toBeFilled].getText().length() != 0) { // если поле не пусто
                 if (textviews[toBeFilled].getText().charAt(0) != 45) { // если первый НЕ минус
-                    textviews[toBeFilled].setText("" + getText(R.string.operation_minus) + textviews[toBeFilled].getText());
+                    textviews[toBeFilled].setText(String.format("%s%s", getText(R.string.operation_minus), textviews[toBeFilled].getText()));
                 } else {
                     textviews[toBeFilled].setText(
                             textviews[toBeFilled].getText()
@@ -208,7 +210,6 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-    @SuppressLint("DefaultLocale")
     private void endGame(Date check) {
         timer.cancel();
 
