@@ -16,7 +16,7 @@ public class InfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_info);
 
         TextView version = findViewById(R.id.textView0);
-        version.setText(String.format("%s %s", getString(R.string.version), getString(R.string.version_code)));
+        version.setText(String.format("%s %s", getString(R.string.version), BuildConfig.VERSION_NAME));
 
         findViewById(R.id.backButton).setOnClickListener(v -> finish());
     }
