@@ -4,13 +4,12 @@ plugins {
 
 android {
     namespace 'ru.karamoff.kawan_kawan.arithmaster'
-    compileSdk 26
+    compileSdk 34
 
     defaultConfig {
         applicationId "ru.karamoff.kawan_kawan.arithmaster"
         minSdk 21
-        //noinspection OldTargetApi
-        targetSdk 26
+        targetSdk 34
         versionCode 45
         versionName "1.0.2"
 
@@ -24,6 +23,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    buildFeatures {
+        buildConfig true
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
