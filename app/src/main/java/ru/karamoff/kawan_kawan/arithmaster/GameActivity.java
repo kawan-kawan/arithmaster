@@ -3,11 +3,13 @@ package ru.karamoff.kawan_kawan.arithmaster;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.util.Date;
 import java.util.Timer;
@@ -61,12 +63,12 @@ public class GameActivity extends AppCompatActivity {
         // меняет окно в зависимости от режима игры
         switch (gamemode) {
             case 0: // классика
-                parent.setBackground(getDrawable(R.drawable.gradient_classic)); // установка фона
+                parent.setBackground(AppCompatResources.getDrawable(this, R.drawable.gradient_classic)); // установка фона
                 modeTitle.setText(getText(R.string.classic_mode_name)); // установка заголовка
 
                 // установка номера заполняемого поля - в данном случае последнее
                 toBeFilled = 2;
-                textviews[toBeFilled].setBackground(getDrawable(R.drawable.empty_field_classic));
+                textviews[toBeFilled].setBackground(AppCompatResources.getDrawable(this, R.drawable.empty_field_classic));
                 break;
             default: // если не передан один из стандартных режимов - скорее всего ошибка
                 toBeFilled = 2;

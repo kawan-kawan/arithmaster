@@ -7,7 +7,7 @@
     android:background="@drawable/gradient_main"
     tools:context="ru.karamoff.kawan_kawan.arithmaster.MainActivity">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -61,6 +61,6 @@
             android:layout_width="match_parent"
             android:layout_height="16dp"
             app:layout_constraintTop_toBottomOf="@+id/infoButton" />
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
