@@ -1,12 +1,11 @@
 package ru.karamoff.kawan_kawan.arithmaster;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class InfoActivity extends AppCompatActivity {
+public class InfoActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

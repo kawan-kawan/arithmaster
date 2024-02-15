@@ -1,16 +1,15 @@
 package ru.karamoff.kawan_kawan.arithmaster;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.Date;
 
-public class ResultActivity extends AppCompatActivity {
+public class ResultActivity extends Activity {
 
     @SuppressLint("DefaultLocale")
     @Override

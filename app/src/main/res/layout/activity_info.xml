@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ru.karamoff.kawan_kawan.arithmaster.InfoActivity"
-    android:background="@drawable/gradient_main">
+    android:background="@drawable/gradient_main"
+    android:orientation="vertical"
+    tools:context="ru.karamoff.kawan_kawan.arithmaster.InfoActivity">
 
     <LinearLayout
         android:id="@+id/topBarLayout"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="64dp"
+        android:layout_marginBottom="16dp"
         android:orientation="horizontal"
-        android:showDividers="none"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:showDividers="none">
 
         <ImageButton
             android:id="@+id/backButton"
@@ -24,13 +22,14 @@
             android:background="@android:color/transparent"
             android:contentDescription="@string/back_to_menu"
             android:cropToPadding="false"
-            app:srcCompat="@drawable/ic_arrow_back"
-            app:tint="@color/grey80" />
+            android:src="@drawable/ic_arrow_back"
+            android:tint="@color/grey80" />
 
         <TextView
             android:id="@+id/modeTitle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_marginEnd="64dp"
             android:layout_weight="1"
             android:fontFamily="@font/source_sans_pro_light"
             android:gravity="center"
@@ -39,42 +38,29 @@
             android:textAllCaps="true"
             android:textColor="@color/grey80"
             android:textSize="30sp" />
-
-        <ImageButton
-            android:layout_width="64dp"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/pause"
-            android:cropToPadding="false"
-            android:visibility="invisible" />
-
     </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/topBarLayout">
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="16dp">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textViewTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/source_sans_pro_light"
+                android:fontFeatureSettings="smcp"
                 android:text="@string/app_name"
                 android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textSize="36sp"
-                android:fontFeatureSettings="smcp" />
+                android:textAppearance="@android:style/TextAppearance.Large"
+                android:textSize="36sp" />
 
             <TextView
                 android:id="@+id/textView0"
@@ -84,7 +70,7 @@
                 android:fontFamily="@font/source_sans_pro_light"
                 android:text="@string/version"
                 android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textAppearance="@android:style/TextAppearance.Large"
                 android:textSize="18sp" />
 
             <TextView
@@ -94,7 +80,7 @@
                 android:fontFamily="@font/source_sans_pro_light"
                 android:text="@string/brought_to_you"
                 android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textAppearance="@android:style/TextAppearance.Large"
                 android:textSize="18sp" />
 
             <TextView
@@ -105,7 +91,7 @@
                 android:fontFamily="@font/source_sans_pro_light"
                 android:text="@string/team_name"
                 android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textAppearance="@android:style/TextAppearance.Large"
                 android:textSize="30sp" />
 
             <TextView
@@ -115,7 +101,7 @@
                 android:fontFamily="@font/source_sans_pro_light"
                 android:text="@string/nikita_occ"
                 android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textAppearance="@android:style/TextAppearance.Large"
                 android:textSize="18sp" />
 
             <TextView
@@ -126,7 +112,7 @@
                 android:fontFamily="@font/source_sans_pro_light"
                 android:text="@string/nikita_name"
                 android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textAppearance="@android:style/TextAppearance.Large"
                 android:textSize="30sp" />
 
             <TextView
@@ -136,7 +122,7 @@
                 android:fontFamily="@font/source_sans_pro_light"
                 android:text="@string/daria_occ"
                 android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textAppearance="@android:style/TextAppearance.Large"
                 android:textSize="18sp" />
 
             <TextView
@@ -147,7 +133,7 @@
                 android:fontFamily="@font/source_sans_pro_light"
                 android:text="@string/daria_name"
                 android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textAppearance="@android:style/TextAppearance.Large"
                 android:textSize="30sp" />
 
             <TextView
@@ -157,7 +143,7 @@
                 android:fontFamily="@font/source_sans_pro_light"
                 android:text="@string/almaz_occ"
                 android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textAppearance="@android:style/TextAppearance.Large"
                 android:textSize="18sp" />
 
             <TextView
@@ -168,9 +154,9 @@
                 android:fontFamily="@font/source_sans_pro_light"
                 android:text="@string/almaz_name"
                 android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textAppearance="@android:style/TextAppearance.Large"
                 android:textSize="30sp" />
         </LinearLayout>
     </ScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
