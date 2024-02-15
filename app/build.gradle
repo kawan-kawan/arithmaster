@@ -10,7 +10,7 @@ android {
         applicationId "ru.karamoff.kawan_kawan.arithmaster"
         minSdk 21
         targetSdk 34
-        versionCode 47
+        versionCode 48
         versionName "1.1.0"
     }
 
@@ -38,5 +38,4 @@ android {
 
 dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'com.google.android.material:material:1.11.0'
 }
