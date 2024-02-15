@@ -17,9 +17,6 @@ build/
 **/*.project
 **/*.classpath
 
-# Package Files
-*.jar
-
 # Local configuration file (sdk path, etc)
 local.properties
 .gradle
