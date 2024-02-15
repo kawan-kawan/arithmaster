@@ -2,6 +2,7 @@ package ru.karamoff.kawan_kawan.arithmaster;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.appcompat.BuildConfig;
 import android.view.WindowManager;
 import android.widget.TextView;
 
