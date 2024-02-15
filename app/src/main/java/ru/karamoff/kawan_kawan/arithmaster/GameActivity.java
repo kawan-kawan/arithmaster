@@ -6,9 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.util.Date;
 import java.util.Timer;
@@ -42,7 +41,7 @@ public class GameActivity extends Activity {
         setContentView(R.layout.activity_game);
 
         // получение объектов для изменения в дальнейшем
-        ConstraintLayout parent = findViewById(R.id.parentLayout); // "родитель" разметки
+        LinearLayout parent = findViewById(R.id.parentLayout); // "родитель" разметки
         TextView modeTitle = findViewById(R.id.modeTitle); // заголовок окна
 
         operationField = findViewById(R.id.operation); // операция

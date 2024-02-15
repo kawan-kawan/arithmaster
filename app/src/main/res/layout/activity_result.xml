@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_classic"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
     tools:context="ru.karamoff.kawan_kawan.arithmaster.ResultActivity">
 
     <LinearLayout
         android:id="@+id/topBarLayout"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="64dp"
+        android:layout_marginBottom="16dp"
         android:background="@color/barColorClassic"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/backButton"
@@ -25,12 +24,13 @@
             android:background="@android:color/transparent"
             android:contentDescription="@string/back_to_menu"
             android:cropToPadding="false"
-            app:srcCompat="@drawable/ic_arrow_back" />
+            android:src="@drawable/ic_arrow_back" />
 
         <TextView
             android:id="@+id/modeTitle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_marginEnd="64dp"
             android:layout_weight="1"
             android:fontFamily="@font/source_sans_pro_light"
             android:gravity="center"
@@ -39,40 +39,23 @@
             android:textAllCaps="true"
             android:textColor="@color/topBarContentColor"
             android:textSize="30sp" />
-
-        <ImageButton
-            android:layout_width="64dp"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/pause"
-            android:cropToPadding="false"
-            android:visibility="invisible" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/textViewHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
         android:fontFamily="@font/source_sans_pro_light"
         android:text="@string/end_good"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="@color/grey80"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topBarLayout" />
+        android:textAppearance="@android:style/TextAppearance.Material.Display1"
+        android:textColor="@color/grey80" />
 
     <TableLayout
         android:id="@+id/tableLayout"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewHeading">
+        android:layout_marginBottom="32dp">
 
         <TableRow
             android:layout_width="match_parent"
@@ -156,18 +139,13 @@
                 android:textColor="@color/grey80"
                 android:textSize="24sp" />
         </TableRow>
-
     </TableLayout>
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout">
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/buttonTryAgain"
@@ -176,10 +154,10 @@
             android:layout_margin="8dp"
             android:background="@drawable/button_classic"
             android:fontFamily="@font/source_sans_pro_light"
-            android:paddingBottom="8dp"
-            android:paddingEnd="16dp"
             android:paddingStart="16dp"
             android:paddingTop="8dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="8dp"
             android:text="@string/try_again"
             android:textSize="28sp" />
 
@@ -190,12 +168,12 @@
             android:layout_margin="8dp"
             android:background="@drawable/button_classic"
             android:fontFamily="@font/source_sans_pro_light"
-            android:paddingBottom="8dp"
-            android:paddingEnd="16dp"
             android:paddingStart="16dp"
             android:paddingTop="8dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="8dp"
             android:text="@string/back_to_menu"
             android:textSize="28sp" />
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
