@@ -12,4 +12,6 @@
     <color name="buttonColorClassic">#22F57C00</color>
 
     <color name="buttonColorSubmit">#222E7D32</color>
+
+    <color name="launcherIconBackground">#E91E63</color>
 </resources>
