@@ -28,6 +28,8 @@ public class GameActivity extends AppCompatActivity {
 
     private Date startTime;
 
+    private CountDownTimer timer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // стартовая инициализация
@@ -140,7 +142,7 @@ public class GameActivity extends AppCompatActivity {
         startTime = new Date();
 
         //каждую секунду проверяет, не пора ли закончить игру
-        new CountDownTimer(TIME, 1000) {
+        timer = new CountDownTimer(TIME, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 Date timeLeft = new Date(millisUntilFinished);
@@ -151,7 +153,8 @@ public class GameActivity extends AppCompatActivity {
             public void onFinish() {
                 endGame(new Date());
             }
-        }.start();
+        };
+        timer.start();
 
         // установка метода проверки на кнопку "подтвердить ответ"
         findViewById(R.id.buttonSubmit).setOnClickListener(v -> {
@@ -202,6 +205,8 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void endGame(Date check) {
+        timer.cancel();
+
         long spent = Math.round((double) (check.getTime() - startTime.getTime()) / 1000) * 1000;
         Intent resultIntent = new Intent(GameActivity.this, ResultActivity.class);
         resultIntent.putExtra("time", new long[]{spent, TIME});
