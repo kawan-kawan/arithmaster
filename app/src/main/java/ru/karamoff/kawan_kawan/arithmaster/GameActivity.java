@@ -1,8 +1,8 @@
 package ru.karamoff.kawan_kawan.arithmaster;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,8 +12,6 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.util.Date;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -29,10 +27,6 @@ public class GameActivity extends AppCompatActivity {
     private final int TIME = 60 * 1000;
 
     private Date startTime;
-    private Date endTime;
-
-
-    private Timer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,28 +135,23 @@ public class GameActivity extends AppCompatActivity {
         initiate(textviews, toBeFilled);
 
         // создаёт таймер
-        timer = new Timer();
         TextView timerTV = findViewById(R.id.timer);
 
         startTime = new Date();
-        endTime = new Date(startTime.getTime() + TIME);
 
         //каждую секунду проверяет, не пора ли закончить игру
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @SuppressLint("DefaultLocale")
+        new CountDownTimer(TIME, 1000) {
             @Override
-            public void run() {
-                Date nowTime = new Date();
-                if (nowTime.after(endTime)) {
-                    endGame(nowTime);
-                } else {
-                    long left = Math.round((double) (endTime.getTime() - nowTime.getTime()) / 1000)
-                            * 1000;
-                    Date timeLeft = new Date(left);
-                    runOnUiThread(() -> timerTV.setText(String.format("%tM:%tS", timeLeft, timeLeft)));
-                }
+            public void onTick(long millisUntilFinished) {
+                Date timeLeft = new Date(millisUntilFinished);
+                timerTV.setText(String.format("%tM:%tS", timeLeft, timeLeft));
             }
-        }, 0, 1000);
+
+            @Override
+            public void onFinish() {
+                endGame(new Date());
+            }
+        }.start();
 
         // установка метода проверки на кнопку "подтвердить ответ"
         findViewById(R.id.buttonSubmit).setOnClickListener(v -> {
@@ -213,8 +202,6 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void endGame(Date check) {
-        timer.cancel();
-
         long spent = Math.round((double) (check.getTime() - startTime.getTime()) / 1000) * 1000;
         Intent resultIntent = new Intent(GameActivity.this, ResultActivity.class);
         resultIntent.putExtra("time", new long[]{spent, TIME});
