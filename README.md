@@ -1,10 +1,5 @@
 # Arithmaster
 
-[![Last commit in develop](https://img.shields.io/github/last-commit/kawan-kawan/arithmaster/develop.svg)](https://github.com/kawan-kawan/arithmaster/commits/develop)
-
-[![Codacy grade](https://img.shields.io/codacy/grade/97352509abb5498d8edc6d07551e80a5.svg)](https://app.codacy.com/gh/kawan-kawan/arithmaster/dashboard)
-[![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/kawan-kawan/arithmaster.svg)](https://codeclimate.com/github/kawan-kawan/arithmaster)
-
 A simple arithmetical game to test player's skills of counting
 
 ## What is the point?
