@@ -4,14 +4,14 @@ plugins {
 
 android {
     namespace 'ru.karamoff.kawan_kawan.arithmaster'
-    compileSdk 35
+    compileSdk 36
 
     defaultConfig {
         applicationId "ru.karamoff.kawan_kawan.arithmaster"
         minSdk 21
-        targetSdk 35
-        versionCode 49
-        versionName "1.1.2"
+        targetSdk 36
+        versionCode 50
+        versionName "1.1.3"
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
@@ -40,7 +40,8 @@ android {
 
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.7.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.2'
+    //noinspection GradleDependency would require bumping minSdk
     implementation 'com.google.android.material:material:1.13.0'
     testImplementation 'junit:junit:4.13.2'
 }
